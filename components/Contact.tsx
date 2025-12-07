@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useToast } from '@/hooks/useToast';
 
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import Link from 'next/link';
 
 const socialLinks = [
   {
@@ -110,7 +111,7 @@ const Contact = () => {
                 {socialLinks.map(social => {
                   const Icon = social.icon;
                   return (
-                    <a
+                    <Link
                       key={social.name}
                       href={social.url}
                       target="_blank"
@@ -120,7 +121,7 @@ const Contact = () => {
                       title={social.name}
                     >
                       <Icon size={24} title={social.name} />
-                    </a>
+                    </Link>
                   );
                 })}
               </div>

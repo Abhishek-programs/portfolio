@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: 'Abhishek Bhattarai | Portfolio',
     description:
       'Explore the portfolio of Abhishek Bhattarai — web developer, engineer, and creator.',
-    url: 'https://yourportfolio.com',
+    url: 'https://bhattaraiabhishek.com.np',
     siteName: 'Abhishek Bhattarai Portfolio',
     images: [
       {
@@ -57,6 +57,7 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
     // creator: '@handle', // adding when i make the account
   },
+  metadataBase: new URL('https://bhattaraiabhishek.com.np'),
 };
 
 export default function RootLayout({
@@ -66,6 +67,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Abhishek Bhattarai',
+              url: 'https://bhattaraiabhishek.com.np',
+              jobTitle: 'Software Developer',
+              sameAs: [
+                'https://github.com/abhishek-programs',
+                'https://linkedin.com/in/i-abhishek-bhattarai/',
+              ],
+            }),
+          }}
+        />
+      </head>
       <body className={poppins.className}>
         <Navbar />
         {children}

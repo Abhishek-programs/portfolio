@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
+import Link from 'next/link';
 
 const Hero = () => {
   return (
@@ -32,10 +33,7 @@ const Hero = () => {
             {/* White Name Section */}
             <div className="bg-white px-8 py-12 text-center">
               <h1 className="text-5xl md:text-7xl font-black text-black mb-4 tracking-tight">
-                ABHISHEK
-              </h1>
-              <h1 className="text-5xl md:text-7xl font-black text-black tracking-tight">
-                BHATTARAI
+                ABHISHEK BHATTARAI
               </h1>
             </div>
           </div>
@@ -54,20 +52,20 @@ const Hero = () => {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <a
+              <Link
                 href="#projects"
                 className="bg-black text-white px-10 py-4 rounded-lg font-bold hover:bg-gray-800 transition-colors border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] text-lg"
                 aria-label="Explore My Work"
               >
                 Explore My Work
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#contact"
                 className="bg-white text-black px-10 py-4 rounded-lg font-bold hover:bg-gray-50 transition-colors border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] text-lg"
                 aria-label="Let's Talk"
               >
                 Let's Talk
-              </a>
+              </Link>
             </div>
           </div>
         </motion.div>

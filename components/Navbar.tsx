@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
@@ -66,21 +67,21 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <a
+            <Link
               href="#home"
               onClick={e => handleNavClick(e, '#home')}
               className="text-xl md:text-2xl font-black text-black hover:text-gray-800 transition-colors tracking-tight"
               title="Go to Home section"
             >
               ABHISHEK
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map(item => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
                   onClick={e => handleNavClick(e, item.href)}
@@ -99,7 +100,7 @@ const Navbar = () => {
                         : 'opacity-0 scale-x-0'
                     }`}
                   ></span>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -129,7 +130,7 @@ const Navbar = () => {
         <div className="md:hidden bg-white border-t">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map(item => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 onClick={e => {
@@ -144,7 +145,7 @@ const Navbar = () => {
                 title={`Go to ${item.name} section`}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

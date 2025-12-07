@@ -7,6 +7,7 @@ import {
   cwsProject,
   buildProject,
 } from '@/assets/images';
+import Link from 'next/link';
 
 const projects = [
   {
@@ -125,7 +126,6 @@ const Projects = () => {
                     quality={100}
                     height={400}
                     width={600}
-                    priority
                     title={project.title}
                   />
                 </div>
@@ -207,7 +207,7 @@ const Projects = () => {
                 {/* Links */}
                 <div className="flex gap-4 pt-2 mt-auto">
                   {project.github !== '#' && (
-                    <a
+                    <Link
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -217,10 +217,10 @@ const Projects = () => {
                     >
                       <FaGithub size={18} title="GitHub icon" />
                       <span>Code</span>
-                    </a>
+                    </Link>
                   )}
                   {project.demo !== '#' && !project.internal && (
-                    <a
+                    <Link
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -230,7 +230,7 @@ const Projects = () => {
                     >
                       <FaExternalLinkAlt size={16} title="External link icon" />
                       <span>Live Demo</span>
-                    </a>
+                    </Link>
                   )}
                   {project.internal && (
                     <span

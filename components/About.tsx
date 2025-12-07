@@ -120,6 +120,7 @@ const About = () => {
                     src={abhishekPhoto}
                     alt="Abhishek Photo"
                     title="Abhishek Bhattarai"
+                    priority
                   />
                 </div>
               </div>
