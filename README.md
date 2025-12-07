@@ -1,6 +1,6 @@
 # Portfolio Website
 
-A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. Showcasing the journey from frontend engineer to full stack developer.
+A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. Showcasing the journey from frontend engineer to full stack developer. Built after I know bit of software engineering.
 
 ## Features
 
@@ -10,6 +10,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 - 🎯 Smooth scrolling navigation
 - 💼 Skills and projects showcase
 - 📧 Contact section with social links
+- Heavily AI usages to learn prompting
 
 ## Getting Started
 
@@ -33,39 +34,6 @@ npm run dev
 ```
 
 3. Open [http://localhost:3000](http://localhost:3000) in your browser
-
-## Customization
-
-### Personal Information
-
-Update the following files with your personal information:
-
-1. **Hero Section** (`components/Hero.tsx`):
-   - Replace "Your Name" with your actual name
-   - Update the description text
-
-2. **About Section** (`components/About.tsx`):
-   - Customize your journey story
-   - Update the "What I Do" section
-
-3. **Skills Section** (`components/Skills.tsx`):
-   - Add/remove technologies you know
-   - Update icons and colors as needed
-
-4. **Projects Section** (`components/Projects.tsx`):
-   - Replace placeholder projects with your actual projects
-   - Update GitHub and demo links
-   - Add project images (update image paths)
-
-5. **Contact Section** (`components/Contact.tsx`):
-   - Update email address
-   - Update social media links (GitHub, LinkedIn, Twitter)
-
-6. **Footer** (`components/Footer.tsx`):
-   - Replace "Your Name" with your actual name
-
-7. **Metadata** (`app/layout.tsx`):
-   - Update title and description for SEO
 
 ## Build for Production
 
