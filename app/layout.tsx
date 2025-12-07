@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Script from 'next/script';
 
 const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700', '800', '900'],
@@ -14,17 +15,14 @@ export const metadata: Metadata = {
   title: 'Abhishek Bhattarai | Software Engineer',
   description:
     'Software Engineer building developer tools and learning platforms used by 10M+ users worldwide. Full-stack expertise in React, Next.js, TypeScript, Python, and Node.js.',
-  icons: [
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '96x96',
-      url: '/favicon-96x96.png',
-    },
-    { rel: 'icon', type: 'image/svg+xml', url: '/favicon.svg' },
-    { rel: 'shortcut icon', url: '/favicon.ico' },
-    { rel: 'apple-touch-icon', sizes: '180x180', url: '/apple-touch-icon.png' },
-  ],
+  icons: {
+    icon: [
+      { url: '/icons/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icons/favicon-96x96.png', sizes: '96x96' },
+    ],
+    shortcut: '/icons/favicon.ico',
+    apple: '/icons/apple-touch-icon.png',
+  },
   manifest: '/site.webmanifest',
   appleWebApp: {
     capable: true,
@@ -58,6 +56,20 @@ export const metadata: Metadata = {
     // creator: '@handle', // adding when i make the account
   },
   metadataBase: new URL('https://bhattaraiabhishek.com.np'),
+
+  other: {
+    'script:ld+json': JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Abhishek Bhattarai',
+      url: 'https://bhattaraiabhishek.com.np',
+      jobTitle: 'Software Developer',
+      sameAs: [
+        'https://github.com/abhishek-programs',
+        'https://linkedin.com/in/i-abhishek-bhattarai/',
+      ],
+    }),
+  },
 };
 
 export default function RootLayout({
@@ -67,24 +79,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Person',
-              name: 'Abhishek Bhattarai',
-              url: 'https://bhattaraiabhishek.com.np',
-              jobTitle: 'Software Developer',
-              sameAs: [
-                'https://github.com/abhishek-programs',
-                'https://linkedin.com/in/i-abhishek-bhattarai/',
-              ],
-            }),
-          }}
-        />
-      </head>
       <body className={poppins.className}>
         <Navbar />
         {children}
