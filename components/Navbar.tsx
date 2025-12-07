@@ -57,6 +57,7 @@ const Navbar = () => {
     { name: 'Projects', href: '#projects', id: 'projects' },
     { name: 'Contact', href: '#contact', id: 'contact' },
   ];
+  const resumeUrl = '/abhishek-bhattarai-resume.pdf';
 
   return (
     <nav
@@ -68,8 +69,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <Link
-              href="#home"
-              onClick={e => handleNavClick(e, '#home')}
+              href="/"
               className="text-xl md:text-2xl font-black text-black hover:text-gray-800 transition-colors tracking-tight"
               title="Go to Home section"
             >
@@ -102,6 +102,15 @@ const Navbar = () => {
                   ></span>
                 </Link>
               ))}
+              <a
+                href={resumeUrl}
+                download
+                className="px-3 py-2 rounded-md text-sm font-bold bg-purple-bright text-white border-2 border-black hover:bg-purple-700 transition-colors ml-4"
+                title="Download Resume"
+                aria-label="Download Resume"
+              >
+                Download Resume
+              </a>
             </div>
           </div>
 
@@ -147,6 +156,15 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            <Link
+              href={resumeUrl}
+              download
+              className="block px-3 py-2 rounded-md text-base font-bold bg-purple-bright text-white border-2 border-black hover:bg-purple-700 transition-colors mt-2"
+              title="Download Resume"
+              aria-label="Download Resume"
+            >
+              Download Resume
+            </Link>
           </div>
         </div>
       )}
