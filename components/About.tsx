@@ -59,7 +59,7 @@ const About = () => {
                     </span>
                     <div>
                       <span className="font-bold text-lg">
-                        Developing scalable tools and products:{' '}
+                        Developing scalable infrastructures and products:{' '}
                       </span>
                       Designing systems that handle millions of requests
                     </div>
