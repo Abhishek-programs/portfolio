@@ -4,7 +4,7 @@ import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 
-export default function Home() {
+const Home = () => {
   return (
     <main className="min-h-screen">
       <Hero />
@@ -14,4 +14,6 @@ export default function Home() {
       <Contact />
     </main>
   );
-}
+};
+
+export default Home;
