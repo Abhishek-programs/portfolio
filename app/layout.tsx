@@ -46,7 +46,6 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
-
   twitter: {
     card: 'summary_large_image',
     title: 'Abhishek Bhattarai | Portfolio',
@@ -56,19 +55,9 @@ export const metadata: Metadata = {
     // creator: '@handle', // adding when i make the account
   },
   metadataBase: new URL('https://bhattaraiabhishek.com.np'),
-
   other: {
-    'script:ld+json': JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: 'Abhishek Bhattarai',
-      url: 'https://bhattaraiabhishek.com.np',
-      jobTitle: 'Software Developer',
-      sameAs: [
-        'https://github.com/abhishek-programs',
-        'https://linkedin.com/in/i-abhishek-bhattarai/',
-      ],
-    }),
+    'article:published_time': '2025-12-01',
+    'article:author': 'Abhishek Bhattarai',
   },
 };
 
@@ -83,6 +72,23 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <Script
+          id="ld-json"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Abhishek Bhattarai',
+              url: 'https://bhattaraiabhishek.com.np',
+              jobTitle: 'Software Developer',
+              sameAs: [
+                'https://github.com/abhishek-programs',
+                'https://linkedin.com/in/i-abhishek-bhattarai/',
+              ],
+            }),
+          }}
+        />
       </body>
     </html>
   );

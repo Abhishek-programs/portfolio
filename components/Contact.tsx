@@ -87,7 +87,7 @@ const Contact = () => {
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left Side - Text */}
-          <div>
+          <article>
             <h2 className="text-4xl md:text-5xl font-black text-black mb-6 leading-tight">
               Excited
               <br />
@@ -126,7 +126,7 @@ const Contact = () => {
                 })}
               </div>
             </div>
-          </div>
+          </article>
 
           {/* Right Side - Contact Form */}
           <div className="bg-yellow-pastel rounded-lg border-8 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">

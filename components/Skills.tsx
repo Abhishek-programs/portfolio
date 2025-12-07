@@ -55,7 +55,8 @@ const Skills = () => {
             <span
               className="text-3xl"
               title="Skills section icon"
-              aria-label="Skills section icon"
+              role="img"
+              aria-label="Skills"
             >
               &lt;/&gt;
             </span>
@@ -94,7 +95,7 @@ const Skills = () => {
                 {category.technologies.map(tech => {
                   const Icon = tech.icon;
                   return (
-                    <div
+                    <article
                       key={tech.name}
                       className="flex flex-col items-center p-3 hover:bg-gray-50 rounded-lg transition-colors"
                       title={tech.name}
@@ -112,7 +113,7 @@ const Skills = () => {
                       >
                         {tech.name}
                       </span>
-                    </div>
+                    </article>
                   );
                 })}
               </div>

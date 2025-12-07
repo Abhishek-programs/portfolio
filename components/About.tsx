@@ -9,7 +9,12 @@ const About = () => {
         {/* Section Title with Icon */}
         <div className="mb-16 flex items-center">
           <div className="bg-black text-white px-8 py-5 rounded-l-lg border-4 border-black flex items-center gap-3">
-            <span className="text-3xl" title="About section icon">
+            <span
+              className="text-3xl"
+              title="About section icon"
+              role="img"
+              aria-label="About"
+            >
               👤
             </span>
             <h2 className="text-4xl md:text-5xl font-black">About</h2>
@@ -17,7 +22,7 @@ const About = () => {
           <div className="flex-1 h-1 bg-black"></div>
         </div>
 
-        <div className="max-w-6xl mx-auto">
+        <article className="max-w-6xl mx-auto" aria-label="About me article">
           <div className="grid md:grid-cols-3 gap-8 items-start">
             {/* Main Content - Left Column */}
             <div className="md:col-span-2 space-y-8">
@@ -172,7 +177,7 @@ const About = () => {
               </div>
             </div>
           </div>
-        </div>
+        </article>
       </div>
     </section>
   );

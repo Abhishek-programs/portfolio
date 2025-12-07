@@ -104,7 +104,12 @@ const Projects = () => {
         {/* Section Title with Icon */}
         <div className="mb-16 flex items-center">
           <div className="bg-black text-white px-8 py-5 rounded-l-lg border-4 border-black flex items-center gap-3">
-            <span className="text-3xl" title="Projects section icon">
+            <span
+              className="text-3xl"
+              title="Projects section icon"
+              role="img"
+              aria-label="Project"
+            >
               📁
             </span>
             <h2 className="text-4xl md:text-5xl font-black">Projects</h2>
@@ -113,7 +118,7 @@ const Projects = () => {
         </div>
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div
+            <article
               key={index}
               className="bg-white rounded-lg border-8 border-black overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col"
               aria-label={project.title}
@@ -148,32 +153,35 @@ const Projects = () => {
                     </span>
                   </div>
                 )}
-                <h3
-                  className="text-2xl md:text-3xl font-black text-black mb-6"
-                  title={project.title}
-                >
-                  {project.title}
-                </h3>
+                  <h3
+                    className="text-2xl md:text-3xl font-black text-black mb-6"
+                    title={project.title}
+                  >
+                    {project.title}
+                  </h3>
                 {/* Problem */}
-                <div className="mb-5 min-h-[76px]">
+                <section aria-label="Problem" className="mb-5 min-h-[76px]">
                   <p className="text-xs font-bold text-gray-500 mb-2 uppercase tracking-wide">
                     Problem
                   </p>
                   <p className="text-gray-800 leading-relaxed font-normal text-base">
                     {project.problem}
                   </p>
-                </div>
+                </section>
                 {/* Solution */}
-                <div className="mb-5 min-h-[102px]">
+                <section aria-label="Solution" className="mb-5 min-h-[102px]">
                   <p className="text-xs font-bold text-gray-500 mb-2 uppercase tracking-wide">
                     Solution
                   </p>
                   <p className="text-gray-800 leading-relaxed font-normal text-base">
                     {project.solution}
                   </p>
-                </div>
+                </section>
                 {/* Impact */}
-                <div className="mb-6 bg-yellow-pastel p-5 rounded-lg border-4 border-black">
+                <section
+                  aria-label="Impact"
+                  className="mb-6 bg-yellow-pastel p-5 rounded-lg border-4 border-black"
+                >
                   <p className="text-sm font-black text-black mb-3">Impact</p>
                   <ul className="space-y-2">
                     {project.impact.map((item, idx) => (
@@ -186,9 +194,9 @@ const Projects = () => {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </section>
                 {/* Technologies */}
-                <div className="mb-6">
+                <section aria-label="Tools" className="mb-6">
                   <p className="text-xs font-bold text-gray-500 mb-3 uppercase tracking-wide">
                     Tools
                   </p>
@@ -203,7 +211,7 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
-                </div>
+                </section>
                 {/* Links */}
                 <div className="flex gap-4 pt-2 mt-auto">
                   {project.github !== '#' && (
@@ -242,7 +250,7 @@ const Projects = () => {
                   )}
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
