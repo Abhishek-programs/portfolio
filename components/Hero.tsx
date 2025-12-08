@@ -31,7 +31,7 @@ const Hero = () => {
               </p>
             </div>
             {/* White Name Section */}
-            <div className="bg-white px-8 py-12 text-center">
+            <div className="bg-white px-4 md:px-8 py-12 text-center">
               <h1 className="text-5xl md:text-7xl font-black text-black mb-4 tracking-tight">
                 ABHISHEK BHATTARAI
               </h1>

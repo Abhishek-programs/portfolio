@@ -6,7 +6,7 @@ import Contact from '@/components/Contact';
 
 const Home = () => {
   return (
-    <main className="min-h-screen">
+    <main className="overflow-x-clip min-h-screen">
       <Hero />
       <About />
       <Skills />
