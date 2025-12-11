@@ -57,7 +57,7 @@ const Navbar = () => {
     { name: 'Projects', href: '#projects', id: 'projects' },
     { name: 'Contact', href: '#contact', id: 'contact' },
   ];
-  const resumeUrl = '/abhishek-bhattarai-resume.pdf';
+  const resumeUrl = '/abhishek-bhattarai-resume-SE.pdf';
 
   return (
     <nav
@@ -102,7 +102,7 @@ const Navbar = () => {
                   ></span>
                 </Link>
               ))}
-              <a
+              <Link
                 href={resumeUrl}
                 download
                 className="px-3 py-2 rounded-md text-sm font-bold bg-purple-bright text-white border-2 border-black hover:bg-purple-700 transition-colors ml-4"
@@ -110,7 +110,7 @@ const Navbar = () => {
                 aria-label="Download Resume"
               >
                 Download Resume
-              </a>
+              </Link>
             </div>
           </div>
 
