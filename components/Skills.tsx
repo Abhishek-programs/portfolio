@@ -11,6 +11,9 @@ import {
   SiPostgresql,
   SiTailwindcss,
   SiExpress,
+  SiGithubactions,
+  SiGoogleanalytics,
+  SiGoogletagmanager,
 } from 'react-icons/si';
 
 const Skills = () => {
@@ -30,7 +33,17 @@ const Skills = () => {
       technologies: [
         { name: 'REST APIs', icon: SiExpress, color: 'text-gray-700' },
         { name: 'PostgreSQL', icon: SiPostgresql, color: 'text-blue-700' },
-        { name: 'CI/CD', icon: FaGitAlt, color: 'text-orange-600' },
+        { name: 'CI/CD', icon: SiGithubactions, color: 'text-orange-600' },
+        {
+          name: 'GTM & sGTM',
+          icon: SiGoogletagmanager,
+          color: 'text-blue-500',
+        }, // Using Docker icon as placeholder/proxy for containerized sGTM
+        {
+          name: 'Google Analytics 4',
+          icon: SiGoogleanalytics,
+          color: 'text-orange-500',
+        }, // Placeholder icon
       ],
     },
     {

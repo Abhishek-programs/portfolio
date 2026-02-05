@@ -1,7 +1,5 @@
 import Image from 'next/image';
 
-import { abhishekPhoto } from '@/assets/images';
-
 const About = () => {
   return (
     <section id="about" className="py-24 bg-white">
@@ -29,9 +27,9 @@ const About = () => {
               {/* Short Intro */}
               <div className="bg-purple-bright rounded-lg border-8 border-black p-8 text-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                 <p className="text-lg leading-relaxed font-normal">
-                  I'm a Software Engineer at{' '}
-                  <span className="font-bold">Programiz</span> with 3+ years
-                  building high-impact learning tools used by millions of
+                  I'm a Senior Software Engineer at{' '}
+                  <span className="font-bold">Programiz</span>, leading the
+                  development of high-impact learning tools used by millions of
                   learners worldwide.
                 </p>
                 <p className="text-lg leading-relaxed font-normal mt-4">
@@ -122,10 +120,13 @@ const About = () => {
               <div className="flex justify-center">
                 <div className="w-64 h-64 rounded-full border-8 border-black bg-gradient-to-br from-purple-400 via-pink-400 to-blue-400 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center overflow-hidden">
                   <Image
-                    src={abhishekPhoto}
+                    src="/abhishek.jpg"
                     alt="Abhishek Photo"
                     title="Abhishek Bhattarai"
+                    width={256}
+                    height={256}
                     priority
+                    unoptimized
                   />
                 </div>
               </div>
@@ -156,14 +157,22 @@ const About = () => {
                   <li className="flex items-start gap-2">
                     <span className="font-black">-</span>
                     <span>
-                      Exploring cloud architecture and scalable systems.
+                      Leading design and implementation of complex features like
+                      algorithm visualizers.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="font-black">-</span>
                     <span>
-                      Contributing to open-source projects and sharing knowledge
-                      with the developer community.
+                      Mentoring junior engineers and guiding technical
+                      architecture.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="font-black">-</span>
+                    <span>
+                      Expanding into advanced marketing analytics and conversion
+                      engineering.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">

@@ -46,9 +46,9 @@ const Hero = () => {
                 learners worldwide
               </p>
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
-                I specialize in React, Next.js, and backend development to
-                create fast, intuitive product and infrastructure — from browser
-                IDEs to visual code execution systems.
+                Frontend-leaning Full-Stack Engineer building scalable products.
+                I specialize in React, Next.js, and backend systems, from
+                browser-based IDEs to execution engines.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">

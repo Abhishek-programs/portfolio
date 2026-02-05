@@ -6,6 +6,8 @@ import {
   playgroundProject,
   cwsProject,
   buildProject,
+  featureFlagProject,
+  marketingAnalyticsProject,
 } from '@/assets/images';
 import Link from 'next/link';
 
@@ -19,7 +21,7 @@ const projects = [
       'Built a visual code execution tool that animates step-by-step program flow and state changes in real-time.',
     impact: [
       '100K+ monthly active users',
-      'Thousands of learners completed projects with visual understanding',
+      'Turns abstract CS topics into intuitive visual experiences',
       'Core tool driving Programiz growth',
     ],
     technologies: [
@@ -58,17 +60,34 @@ const projects = [
     image: playgroundProject,
   },
   {
-    title: 'Content Workflow System',
-    impactBadge: '7× faster releases',
-    problem: 'Content release cycle took 14 days, slowing product iteration.',
+    title: 'Marketing Analytics Pipeline',
+    impactBadge: '10M+ events/month',
+    problem: 'Incomplete funnel visibility and poor conversion tracking.',
     solution:
-      'Built an automated workflow system with CI/CD integration, reducing manual steps and enabling faster content delivery.',
+      'Implemented complete analytics stack with GTM, sGTM, GA4, and Meta CAPI, handling 10M+ events/mo.',
     impact: [
-      '7× faster content release (14 days → 2 days)',
-      'Streamlined team workflows',
-      'Accelerated product iteration',
+      'Fixed tracking from 0% to 90%+ accuracy',
+      'Reduced signup latency (1.5s → 800ms) via non-blocking analytics',
+      'Enabled proper attribution and lower CAC',
     ],
-    technologies: ['Python', 'Workflow Automation', 'CI/CD'],
+    technologies: ['GTM', 'sGTM', 'Docker', 'GA4', 'Meta CAPI'],
+    github: '#',
+    demo: '#',
+    internal: true,
+    image: marketingAnalyticsProject,
+  },
+  {
+    title: 'Content Gen. AI Workflow',
+    impactBadge: '3x faster output',
+    problem: 'Content creation was slow and labor-intensive.',
+    solution:
+      'Built a Slack-bot based AI workflow that transforms brain dumps into structured courses.',
+    impact: [
+      'Reduced content release time from 13 to 7 days',
+      'Combined with workflow system for 3x speedup',
+      'Maintained brand consistency via custom training',
+    ],
+    technologies: ['OpenAI', 'Gemini', 'Slack API', 'Prompt Engineering'],
     github: '#',
     demo: '#',
     internal: true,
@@ -90,6 +109,23 @@ const projects = [
     github: '#',
     demo: 'https://programiz.pro/wall-of-inspiration',
     image: buildProject,
+  },
+  {
+    title: 'Feature Flag System',
+    impactBadge: 'Risk-free rollouts',
+    problem: 'High risk deployments and lack of experimentation capability.',
+    solution:
+      'Implemented feature flag infrastructure enabling controlled rollouts and A/B testing.',
+    impact: [
+      'Enabled A/B testing for offer pages',
+      'Reduced deployment risk',
+      'Managing 10+ concurrent flags',
+    ],
+    technologies: ['GrowthBook', 'React', 'Node.js'],
+    github: '#',
+    demo: '#',
+    internal: true,
+    image: featureFlagProject,
   },
 ];
 
@@ -153,12 +189,12 @@ const Projects = () => {
                     </span>
                   </div>
                 )}
-                  <h3
-                    className="text-2xl md:text-3xl font-black text-black mb-6"
-                    title={project.title}
-                  >
-                    {project.title}
-                  </h3>
+                <h3
+                  className="text-2xl md:text-3xl font-black text-black mb-6"
+                  title={project.title}
+                >
+                  {project.title}
+                </h3>
                 {/* Problem */}
                 <section aria-label="Problem" className="mb-5 min-h-[76px]">
                   <p className="text-xs font-bold text-gray-500 mb-2 uppercase tracking-wide">
