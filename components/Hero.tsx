@@ -42,13 +42,13 @@ const Hero = () => {
           <div className="text-center space-y-8">
             <div className="space-y-4">
               <p className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
-                Software Engineer building scalable product used by 10M+
-                learners worldwide
+                Senior Software Engineer with 4 years building platforms for
+                10M+ users
               </p>
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
-                Frontend-leaning Full-Stack Engineer building scalable products.
-                I specialize in React, Next.js, and backend systems, from
-                browser-based IDEs to execution engines.
+                Frontend-leaning Full-Stack. TypeScript, React, Next.js, Python.
+                Execution engines, workflow automation, and growth analytics
+                (sGTM, CAPI).
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">

@@ -28,15 +28,15 @@ const About = () => {
               <div className="bg-purple-bright rounded-lg border-8 border-black p-8 text-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                 <p className="text-lg leading-relaxed font-normal">
                   I'm a Senior Software Engineer at{' '}
-                  <span className="font-bold">Programiz</span>, leading the
-                  development of high-impact learning tools used by millions of
-                  learners worldwide.
+                  <span className="font-bold">Programiz</span> with 4 years of
+                  experience, leading high-impact learning tools used by 10M+
+                  users worldwide.
                 </p>
                 <p className="text-lg leading-relaxed font-normal mt-4">
-                  I specialize in frontend engineering (React, Next.js) and
-                  backend development (Node, Python), with a strong focus on
-                  building fast, intuitive UX for products and scaling systems
-                  that handle millions of monthly executions.
+                  I specialize in frontend (React, Next.js) and backend (Node,
+                  Python), plus growth analytics (sGTM, Meta CAPI). I focus on
+                  fast UX, scalable systems, and bridging engineering with
+                  product and growth.
                 </p>
               </div>
 
@@ -53,7 +53,7 @@ const About = () => {
                       <span className="font-bold text-lg">
                         Full-stack engineering:{' '}
                       </span>
-                      Building end-to-end features from UI to APIs
+                      End-to-end features from UI to APIs
                     </div>
                   </li>
                   <li className="flex items-start">
@@ -62,9 +62,9 @@ const About = () => {
                     </span>
                     <div>
                       <span className="font-bold text-lg">
-                        Developing scalable infrastructures and products:{' '}
+                        Lead visualizer & IDE architecture:{' '}
                       </span>
-                      Designing systems that handle millions of requests
+                      Code Visualizer suite, Playground for 100K+ and 1M+ users
                     </div>
                   </li>
                   <li className="flex items-start">
@@ -73,9 +73,9 @@ const About = () => {
                     </span>
                     <div>
                       <span className="font-bold text-lg">
-                        Building browser-based coding tools:{' '}
+                        Marketing data pipelines:{' '}
                       </span>
-                      Creating visualizers, IDEs, and learning systems
+                      sGTM, Meta CAPI, conversion tracking with growth teams
                     </div>
                   </li>
                   <li className="flex items-start">
@@ -84,9 +84,20 @@ const About = () => {
                     </span>
                     <div>
                       <span className="font-bold text-lg">
-                        Mentoring and leading engineering delivery:{' '}
+                        System performance:{' '}
                       </span>
-                      Guiding teams and shipping impactful products
+                      Non-blocking analytics; 45% latency reduction on critical paths
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-purple-bright mr-3 font-bold text-xl">
+                      •
+                    </span>
+                    <div>
+                      <span className="font-bold text-lg">
+                        Mentorship:{' '}
+                      </span>
+                      Code reviews, TypeScript and REST API standards
                     </div>
                   </li>
                 </ul>
@@ -98,19 +109,18 @@ const About = () => {
                   What I've Built
                 </h3>
                 <p className="text-gray-800 leading-relaxed mb-3">
-                  Led development of{' '}
-                  <span className="font-bold">Code Visualizer</span> (100K+
-                  monthly users), enabling thousands of learners to understand
-                  code execution visually. Built{' '}
-                  <span className="font-bold">browser-based IDEs</span> serving
-                  1M+ monthly learners. Designed systems that cut content
-                  release time by <span className="font-bold">7×</span>,
-                  accelerating product iteration significantly.
+                  Led <span className="font-bold">Code Visualizer</span> (100K+
+                  MAU) and <span className="font-bold">Playground IDE</span>{' '}
+                  (8 languages, 1M+ learners). Cut content release from 14 to 4
+                  days via a custom workflow system; 2× content velocity with
+                  AI-powered pipelines. Built analytics stack (sGTM, CAPI)
+                  handling ~10M events/month; tracking 0%→90%+, 45% auth latency
+                  improvement.
                 </p>
                 <p className="text-gray-800 leading-relaxed">
-                  Built REST APIs and microservices powering Lessons,
-                  Challenges, and Quizzes, ensuring scalability and reliability
-                  for millions of requests per month.
+                  REST APIs and microservices for Lessons, Quizzes, and
+                  execution pipelines; feature flags and A/B testing for
+                  risk-free rollouts.
                 </p>
               </div>
             </div>
@@ -140,7 +150,7 @@ const About = () => {
                 </div>
                 <div className="bg-orange-bright rounded-lg border-8 border-black p-4 text-center shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
                   <p className="text-white font-black text-sm">
-                    End to End Product Developer
+                    Growth / Analytics
                   </p>
                 </div>
                 <div className="bg-orange-bright rounded-lg border-8 border-black p-4 text-center shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">

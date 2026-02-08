@@ -4,46 +4,60 @@ import {
   FaPython,
   FaDocker,
   FaGitAlt,
+  FaServer,
+  FaCogs,
+  FaChartLine,
 } from 'react-icons/fa';
 import {
   SiTypescript,
   SiNextdotjs,
-  SiPostgresql,
   SiTailwindcss,
   SiExpress,
   SiGithubactions,
   SiGoogleanalytics,
   SiGoogletagmanager,
+  SiJavascript,
+  SiFramer,
+  SiStorybook,
+  SiMeta,
+  SiMixpanel,
+  SiChartdotjs,
 } from 'react-icons/si';
 
 const Skills = () => {
   const categorizedSkills = [
     {
-      category: 'Core Engineering',
+      category: 'Core / Frontend',
       technologies: [
         { name: 'React', icon: FaReact, color: 'text-blue-500' },
         { name: 'Next.js', icon: SiNextdotjs, color: 'text-gray-900' },
         { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-600' },
-        { name: 'Node.js', icon: FaNodeJs, color: 'text-green-600' },
-        { name: 'Python', icon: FaPython, color: 'text-blue-400' },
+        { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-500' },
+        { name: 'Design Systems', icon: SiStorybook, color: 'text-pink-500' },
+        { name: 'Framer Motion', icon: SiFramer, color: 'text-gray-800' },
       ],
     },
     {
-      category: 'Platforms & Infrastructure',
+      category: 'Backend & Systems',
       technologies: [
+        { name: 'Node.js', icon: FaNodeJs, color: 'text-green-600' },
+        { name: 'Python', icon: FaPython, color: 'text-blue-400' },
         { name: 'REST APIs', icon: SiExpress, color: 'text-gray-700' },
-        { name: 'PostgreSQL', icon: SiPostgresql, color: 'text-blue-700' },
+        { name: 'Microservices', icon: FaServer, color: 'text-gray-600' },
+        { name: 'Docker', icon: FaDocker, color: 'text-blue-500' },
         { name: 'CI/CD', icon: SiGithubactions, color: 'text-orange-600' },
-        {
-          name: 'GTM & sGTM',
-          icon: SiGoogletagmanager,
-          color: 'text-blue-500',
-        }, // Using Docker icon as placeholder/proxy for containerized sGTM
-        {
-          name: 'Google Analytics 4',
-          icon: SiGoogleanalytics,
-          color: 'text-orange-500',
-        }, // Placeholder icon
+        { name: 'Workflow Automation', icon: FaCogs, color: 'text-gray-600' },
+      ],
+    },
+    {
+      category: 'Growth & Marketing Analytics',
+      technologies: [
+        { name: 'GTM & sGTM', icon: SiGoogletagmanager, color: 'text-blue-500' },
+        { name: 'GA4', icon: SiGoogleanalytics, color: 'text-orange-500' },
+        { name: 'Meta CAPI', icon: SiMeta, color: 'text-blue-600' },
+        { name: 'RudderStack', icon: SiChartdotjs, color: 'text-orange-600' },
+        { name: 'Mixpanel', icon: SiMixpanel, color: 'text-orange-600' },
+        { name: 'Conversion Tracking', icon: FaChartLine, color: 'text-green-600' },
       ],
     },
     {
@@ -84,14 +98,14 @@ const Skills = () => {
             className="text-lg text-gray-800 font-semibold leading-relaxed"
             aria-label="Skills summary"
           >
-            Product-driven engineer specializing in React, Next.js, TypeScript,
-            Node.js, and Python. Comfortable across the entire stack, with
-            experience in building scalable product and internal tools.
+            Product-driven engineer with 4 years. TypeScript, React, Next.js,
+            Node.js, Python. Scalable product, internal tools, and growth
+            analytics (GTM, sGTM, CAPI).
           </p>
         </div>
 
-        {/* Categorized Skills */}
-        <div className="grid md:grid-cols-3 gap-6">
+        {/* Categorized Skills - 2x2 grid for 4 categories */}
+        <div className="grid md:grid-cols-2 gap-6">
           {categorizedSkills.map(category => (
             <div
               key={category.category}

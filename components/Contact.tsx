@@ -3,8 +3,10 @@
 import { useState } from 'react';
 import { useToast } from '@/hooks/useToast';
 
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaFilePdf } from 'react-icons/fa';
 import Link from 'next/link';
+
+const resumeUrl = '/abhishek-bhattarai-resume-SE.pdf';
 
 const socialLinks = [
   {
@@ -107,7 +109,7 @@ const Contact = () => {
               <p className="text-black text-sm font-semibold">
                 ✉️ i.abhishek.bhattarai@gmail.com
               </p>
-              <div className="flex gap-4 pt-4">
+              <div className="flex flex-wrap items-center gap-4 pt-4">
                 {socialLinks.map(social => {
                   const Icon = social.icon;
                   return (
@@ -124,6 +126,17 @@ const Contact = () => {
                     </Link>
                   );
                 })}
+                <Link
+                  href={resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-black hover:text-purple-bright transition-colors font-semibold text-sm"
+                  aria-label="Download Resume"
+                  title="Download Resume"
+                >
+                  <FaFilePdf size={24} title="Resume" />
+                  <span>Resume</span>
+                </Link>
               </div>
             </div>
           </article>

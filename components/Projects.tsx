@@ -13,21 +13,22 @@ import Link from 'next/link';
 
 const projects = [
   {
-    title: 'Code Visualizer',
+    title: 'Code Visualizer Suite',
     impactBadge: '100K+ monthly users',
     problem:
-      'Learners struggled to understand abstract code execution concepts.',
+      'Learners struggled to understand abstract code execution and algorithm steps.',
     solution:
-      'Built a visual code execution tool that animates step-by-step program flow and state changes in real-time.',
+      'Led end-to-end build of Python, C, and DSA visualizers: line-by-line execution, variable tracking, recursion. TypeScript frontend with Python/Node execution pipelines.',
     impact: [
       '100K+ monthly active users',
-      'Turns abstract CS topics into intuitive visual experiences',
-      'Core tool driving Programiz growth',
+      'Turns pointers, recursion, DP into intuitive visual experiences',
+      'Core tool driving Programiz learning platform',
     ],
     technologies: [
       'Python',
       'React',
-      'Next.js',
+      'TypeScript',
+      'Node.js',
       'REST APIs',
       'Debug inspection',
     ],
@@ -41,12 +42,11 @@ const projects = [
     problem:
       'Learners needed a seamless in-browser coding environment for experimentation.',
     solution:
-      'Engineered a multi-language IDE with real-time execution, instant feedback, and support for multiple programming languages.',
+      'Primary developer of multi-language IDE: 8 languages, real-time execution, scalable backend. Powers examples, lessons, and project-based learning.',
     impact: [
       '1M+ monthly learners',
-      'Millions of code executions processed',
-      'Enabled efficient in-browser coding',
-      'Increased learner retention significantly',
+      '8-language support with isolated execution',
+      'Enabled in-browser coding and portfolio outcomes',
     ],
     technologies: [
       'React',
@@ -64,28 +64,28 @@ const projects = [
     impactBadge: '10M+ events/month',
     problem: 'Incomplete funnel visibility and poor conversion tracking.',
     solution:
-      'Implemented complete analytics stack with GTM, sGTM, GA4, and Meta CAPI, handling 10M+ events/mo.',
+      'Designed server-side event pipeline (sGTM, Meta CAPI). RudderStack and BigQuery for funnel analysis. 90%+ tracking coverage, privacy-compliant.',
     impact: [
-      'Fixed tracking from 0% to 90%+ accuracy',
-      'Reduced signup latency (1.5s → 800ms) via non-blocking analytics',
-      'Enabled proper attribution and lower CAC',
+      'Tracking 0% → 90%+; 50% tracking accuracy improvement',
+      'Signup latency 1.5s → 800ms via non-blocking analytics',
+      'Attribution and lower CAC for paid marketing',
     ],
-    technologies: ['GTM', 'sGTM', 'Docker', 'GA4', 'Meta CAPI'],
+    technologies: ['GTM', 'sGTM', 'GA4', 'Meta CAPI', 'RudderStack', 'Mixpanel'],
     github: '#',
     demo: '#',
     internal: true,
     image: marketingAnalyticsProject,
   },
   {
-    title: 'Content Gen. AI Workflow',
-    impactBadge: '3x faster output',
+    title: 'AI-Powered Content Engine',
+    impactBadge: '2x production velocity',
     problem: 'Content creation was slow and labor-intensive.',
     solution:
-      'Built a Slack-bot based AI workflow that transforms brain dumps into structured courses.',
+      'Slack-integrated AI engine: raw docs → structured courses, brand-compliant assets. Multi-stage GPT/Gemini pipeline for content team.',
     impact: [
-      'Reduced content release time from 13 to 7 days',
-      'Combined with workflow system for 3x speedup',
-      'Maintained brand consistency via custom training',
+      'Content production 12 → 6 days (2x faster)',
+      'Primary tool for content team; halved time-to-market',
+      'Brand consistency via custom training',
     ],
     technologies: ['OpenAI', 'Gemini', 'Slack API', 'Prompt Engineering'],
     github: '#',
@@ -95,15 +95,15 @@ const projects = [
   },
   {
     title: 'Guided Project Environments',
-    impactBadge: 'Hundreds of projects',
+    impactBadge: 'Thousands of learners',
     problem:
       'Learners needed structured, validated project experiences with portfolio outcomes.',
     solution:
-      'Built scalable environments with live validation, portfolio support, and real-world learning outcomes.',
+      'Contributed to system design for scalable project environments: automatic validation, portfolio support, measurable success outcomes.',
     impact: [
-      'Hundreds of completed real-world projects',
-      'Enabled portfolio outcomes for learners',
-      'Improved learning outcomes and engagement',
+      'Thousands of learners complete projects with measurable outcomes',
+      'Portfolio support and wall-of-inspiration',
+      'Improved engagement and completion',
     ],
     technologies: ['React', 'Google API', 'REST APIs', 'Python'],
     github: '#',
@@ -115,11 +115,11 @@ const projects = [
     impactBadge: 'Risk-free rollouts',
     problem: 'High risk deployments and lack of experimentation capability.',
     solution:
-      'Implemented feature flag infrastructure enabling controlled rollouts and A/B testing.',
+      'Built feature flag infrastructure (custom + GrowthBook). Controlled rollouts, A/B testing, instant toggles across large codebase.',
     impact: [
-      'Enabled A/B testing for offer pages',
-      'Reduced deployment risk',
+      'A/B tested offer pages; reduced deployment risk',
       'Managing 10+ concurrent flags',
+      'Decoupled deployment from release',
     ],
     technologies: ['GrowthBook', 'React', 'Node.js'],
     github: '#',

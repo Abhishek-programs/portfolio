@@ -12,9 +12,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Abhishek Bhattarai | Software Engineer',
+  title: 'Abhishek Bhattarai | Senior Software Engineer',
   description:
-    'Software Engineer building developer tools and learning platforms used by 10M+ users worldwide. Full-stack expertise in React, Next.js, TypeScript, Python, and Node.js.',
+    'Senior Software Engineer, 4 years. High-scale platforms for 10M+ users. TypeScript, React, Next.js, Python. Execution engines, workflow automation, growth analytics (sGTM, CAPI).',
   icons: {
     icon: [
       { url: '/icons/favicon.svg', type: 'image/svg+xml' },
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     title: 'Portfolio',
   },
   openGraph: {
-    title: 'Abhishek Bhattarai | Portfolio',
+    title: 'Abhishek Bhattarai | Senior Software Engineer',
     description:
-      'Explore the portfolio of Abhishek Bhattarai — web developer, engineer, and creator.',
+      'Senior Software Engineer building high-scale platforms for 10M+ users. React, Next.js, TypeScript, Python. Growth analytics (sGTM, CAPI).',
     url: 'https://bhattaraiabhishek.com.np',
     siteName: 'Abhishek Bhattarai Portfolio',
     images: [
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Abhishek Bhattarai | Portfolio',
+    title: 'Abhishek Bhattarai | Senior Software Engineer',
     description:
-      'Discover projects and experience from Abhishek Bhattarai — full-stack engineer.',
+      'Senior Software Engineer, 4 years. High-scale platforms for 10M+ users. Full-stack and growth analytics.',
     images: ['/og-image.png'],
     // creator: '@handle', // adding when i make the account
   },
@@ -81,7 +81,7 @@ export default function RootLayout({
               '@type': 'Person',
               name: 'Abhishek Bhattarai',
               url: 'https://bhattaraiabhishek.com.np',
-              jobTitle: 'Software Developer',
+              jobTitle: 'Senior Software Engineer',
               sameAs: [
                 'https://github.com/abhishek-programs',
                 'https://linkedin.com/in/i-abhishek-bhattarai/',
