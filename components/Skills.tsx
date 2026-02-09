@@ -44,7 +44,6 @@ const Skills = () => {
         { name: 'Python', icon: FaPython, color: 'text-blue-400' },
         { name: 'REST APIs', icon: SiExpress, color: 'text-gray-700' },
         { name: 'Microservices', icon: FaServer, color: 'text-gray-600' },
-        { name: 'Docker', icon: FaDocker, color: 'text-blue-500' },
         { name: 'CI/CD', icon: SiGithubactions, color: 'text-orange-600' },
         { name: 'Workflow Automation', icon: FaCogs, color: 'text-gray-600' },
       ],
@@ -52,12 +51,20 @@ const Skills = () => {
     {
       category: 'Growth & Marketing Analytics',
       technologies: [
-        { name: 'GTM & sGTM', icon: SiGoogletagmanager, color: 'text-blue-500' },
+        {
+          name: 'GTM & sGTM',
+          icon: SiGoogletagmanager,
+          color: 'text-blue-500',
+        },
         { name: 'GA4', icon: SiGoogleanalytics, color: 'text-orange-500' },
         { name: 'Meta CAPI', icon: SiMeta, color: 'text-blue-600' },
         { name: 'RudderStack', icon: SiChartdotjs, color: 'text-orange-600' },
         { name: 'Mixpanel', icon: SiMixpanel, color: 'text-orange-600' },
-        { name: 'Conversion Tracking', icon: FaChartLine, color: 'text-green-600' },
+        {
+          name: 'Conversion Tracking',
+          icon: FaChartLine,
+          color: 'text-green-600',
+        },
       ],
     },
     {
