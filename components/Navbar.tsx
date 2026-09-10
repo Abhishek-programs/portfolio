@@ -69,7 +69,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <Link
-              href="/"
+              href="/v1"
               className="text-xl md:text-2xl font-black text-black hover:text-gray-800 transition-colors tracking-tight"
               title="Go to Home section"
             >
