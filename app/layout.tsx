@@ -1,20 +1,32 @@
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
+import { IBM_Plex_Mono, Poppins, Space_Grotesk } from 'next/font/google';
 import './globals.css';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import Script from 'next/script';
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-display',
+});
+
+const plexMono = IBM_Plex_Mono({
+  weight: ['400', '500', '600'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mono',
+});
 
 const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
   display: 'swap',
+  variable: '--font-legacy',
 });
 
 export const metadata: Metadata = {
   title: 'Abhishek Bhattarai | Senior Software Engineer',
   description:
-    'Senior Software Engineer, 4 years. High-scale platforms for 10M+ users. TypeScript, React, Next.js, Python. Execution engines, workflow automation, growth analytics (sGTM, CAPI).',
+    'Senior Software Engineer at reAlpha building interaction-rich products with TypeScript, React, Next.js, React Native, Node.js, and Python.',
   icons: {
     icon: [
       { url: '/icons/favicon.svg', type: 'image/svg+xml' },
@@ -32,12 +44,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Abhishek Bhattarai | Senior Software Engineer',
     description:
-      'Senior Software Engineer building high-scale platforms for 10M+ users. React, Next.js, TypeScript, Python. Growth analytics (sGTM, CAPI).',
+      'Frontend-forward Senior Software Engineer building high-scale products and developer tools with TypeScript, React, Next.js, and Python.',
     url: 'https://bhattaraiabhishek.com.np',
     siteName: 'Abhishek Bhattarai Portfolio',
     images: [
       {
-        url: '/og-image.png',
+        url: '/og_image.png',
         width: 1200,
         height: 630,
         alt: 'Abhishek Bhattarai Portfolio Preview',
@@ -50,13 +62,13 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Abhishek Bhattarai | Senior Software Engineer',
     description:
-      'Senior Software Engineer, 4 years. High-scale platforms for 10M+ users. Full-stack and growth analytics.',
-    images: ['/og-image.png'],
+      'Frontend-forward Senior Software Engineer at reAlpha building high-scale products and developer tools.',
+    images: ['/og_image.png'],
     // creator: '@handle', // adding when i make the account
   },
   metadataBase: new URL('https://bhattaraiabhishek.com.np'),
   other: {
-    'article:published_time': '2025-12-01',
+    'article:modified_time': '2026-09-10',
     'article:author': 'Abhishek Bhattarai',
   },
 };
@@ -68,10 +80,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
-        <Navbar />
+      <body
+        className={`${spaceGrotesk.variable} ${plexMono.variable} ${poppins.variable}`}
+      >
         {children}
-        <Footer />
         <Script
           id="ld-json"
           type="application/ld+json"
