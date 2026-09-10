@@ -5,19 +5,7 @@ const sitemap = () => {
       lastModified: new Date(),
     },
     {
-      url: 'https://bhattaraiabhishek.com.np/#about',
-      lastModified: new Date(),
-    },
-    {
-      url: 'https://bhattaraiabhishek.com.np/#skills',
-      lastModified: new Date(),
-    },
-    {
-      url: 'https://bhattaraiabhishek.com.np/#projects',
-      lastModified: new Date(),
-    },
-    {
-      url: 'https://bhattaraiabhishek.com.np/#contact',
+      url: 'https://bhattaraiabhishek.com.np/v1',
       lastModified: new Date(),
     },
   ];
