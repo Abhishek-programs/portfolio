@@ -21,10 +21,12 @@
 ### Task 1: Preserve the Legacy Portfolio
 
 **Files:**
+
 - Create: `app/v1/page.tsx`
 - Modify: `app/layout.tsx`
 
 **Interfaces:**
+
 - Produces: `/v1` route with `Navbar`, `Hero`, `About`, `Skills`, `Projects`, `Contact`, and `Footer`
 - Produces: root layout that does not force legacy chrome around `/`
 
@@ -44,11 +46,13 @@ Expected: both `/` and `/v1` compile without missing imports.
 ### Task 2: Add the GSAP Runtime and Résumé Asset
 
 **Files:**
+
 - Modify: `package.json`
 - Modify: `package-lock.json`
 - Replace: `public/abhishek-bhattarai-resume-SE.pdf`
 
 **Interfaces:**
+
 - Produces: `gsap` and `@gsap/react` imports available to client components
 - Produces: updated résumé at the existing stable download URL
 
@@ -69,10 +73,12 @@ Expected: package manifests and the résumé PDF are modified.
 ### Task 3: Build the Cinematic Resume
 
 **Files:**
+
 - Create: `components/CinematicPortfolio.tsx`
 - Modify: `app/page.tsx`
 
 **Interfaces:**
+
 - Produces: default export `CinematicPortfolio`
 - Consumes: GSAP core, ScrollTrigger, and `useGSAP`
 
@@ -99,9 +105,11 @@ Replace the old root page composition with the new component.
 ### Task 4: Add the Editorial Visual System
 
 **Files:**
+
 - Modify: `app/globals.css`
 
 **Interfaces:**
+
 - Consumes: class hooks from `CinematicPortfolio.tsx`
 - Produces: complete desktop, mobile, pointer, focus, and reduced-motion styling
 
@@ -124,9 +132,11 @@ Ensure transforms and hidden states cannot prevent content from rendering when m
 ### Task 5: Verify the Experience
 
 **Files:**
+
 - Modify as required by failures only
 
 **Interfaces:**
+
 - Verifies: production compilation and browser behavior
 
 - [ ] **Step 1: Run formatting and build checks**
