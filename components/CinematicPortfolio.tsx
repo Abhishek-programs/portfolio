@@ -51,13 +51,21 @@ const systems = [
   },
   {
     number: '03',
+    title: 'Grievance Desk',
+    metric: 'One write, still explainable',
+    copy: 'A desk for fictional complaints. CSV imports are staged, the deadline is five working days in Kathmandu, and the supervisor’s decision shares a transaction with the follow-up.',
+    stack: 'TypeScript · React · Express · PostgreSQL',
+    href: 'https://desk.bhattaraiabhishek.com.np',
+  },
+  {
+    number: '04',
     title: 'AI Content Engine',
     metric: '12 → 6 days',
     copy: 'Architected a GPT/Gemini and Slack workflow that turns raw documentation into structured courses.',
     stack: 'Python · GPT · Gemini · Slack API',
   },
   {
-    number: '04',
+    number: '05',
     title: 'Analytics Pipeline',
     metric: '50% accuracy gain',
     copy: 'Designed privacy-aware server-side conversion tracking and funnel analytics across millions of events.',
@@ -141,7 +149,7 @@ export default function CinematicPortfolio() {
                 scrollTrigger: {
                   trigger: chapter,
                   start: 'top top',
-                  end: isWork ? '+=260%' : '+=130%',
+                  end: isWork ? '+=330%' : '+=130%',
                   pin: true,
                   scrub: 0.8,
                   anticipatePin: 1,
@@ -224,7 +232,7 @@ export default function CinematicPortfolio() {
                       return -(element.scrollWidth - window.innerWidth + 48);
                     },
                     ease: 'none',
-                    duration: 2.4,
+                    duration: 3,
                   },
                   '+=0.15'
                 );
