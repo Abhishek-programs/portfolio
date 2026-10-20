@@ -13,6 +13,22 @@ import Link from 'next/link';
 
 const projects = [
   {
+    title: 'Grievance Desk',
+    impactBadge: 'Live portfolio piece',
+    problem:
+      'A complaint queue becomes dishonest when a missing date, a repeat, or a guess lands as ordinary open work.',
+    solution:
+      'Built a review desk that stages CSV imports, counts five working days in Asia/Kathmandu, and records the supervisor decision in the same transaction as the follow-up. A signed-in email sees only its own cases. A signed-out visitor can work the sample in the browser.',
+    impact: [
+      'The import, the deadline, and the decision stay explainable after the write',
+      'Production is Express on Vercel and Postgres on Neon, with migrations applied from CI',
+      'Live beside this site at desk.bhattaraiabhishek.com.np',
+    ],
+    technologies: ['TypeScript', 'React', 'Express', 'PostgreSQL', 'Neon'],
+    github: 'https://github.com/Abhishek-programs/grievance-escalation-console',
+    demo: 'https://desk.bhattaraiabhishek.com.np',
+  },
+  {
     title: 'Code Visualizer Suite',
     impactBadge: '100K+ monthly users',
     problem:
@@ -172,12 +188,9 @@ const Projects = () => {
                 </div>
               ) : (
                 <div className="h-48 bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100 flex items-center justify-center border-b-4 border-black">
-                  <span
-                    className="text-gray-600 text-sm font-semibold"
-                    title="Project Screenshot"
-                  >
-                    Project Screenshot
-                  </span>
+                    <span className="text-gray-600 text-sm font-semibold">
+                      {project.title}
+                    </span>
                 </div>
               )}
               <div className="p-8 bg-white flex-1 flex flex-col">
