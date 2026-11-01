@@ -1,0 +1,222 @@
+.unspoil-site {
+  --unspoil-page: #0b5c34;
+  --unspoil-surface: #084828;
+  --unspoil-card: #127243;
+  --unspoil-green: #6eef9a;
+  --unspoil-green-deep: #083d22;
+  --unspoil-ring: #7dffb0;
+  --unspoil-red: #ff8d7a;
+  --unspoil-purple: #d4c4ff;
+  --unspoil-ink: #f4fff7;
+  --unspoil-muted: #d5eadc;
+  --unspoil-faint: #b7d4c2;
+  --unspoil-border: rgba(244, 255, 247, 0.16);
+  --unspoil-track: rgba(244, 255, 247, 0.16);
+
+  min-height: 100vh;
+  color: var(--unspoil-ink);
+  background: var(--unspoil-page);
+  font-family: var(--font-unspoil), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.unspoil-site ::selection {
+  color: var(--unspoil-green-deep);
+  background: var(--unspoil-green);
+}
+
+.unspoil-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.unspoil-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--unspoil-border);
+  background: rgba(8, 72, 40, 0.92);
+  backdrop-filter: blur(16px);
+}
+
+.unspoil-header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 28px;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 14px 20px;
+}
+
+.unspoil-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--unspoil-ink);
+  font-size: 16px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.unspoil-brand img {
+  border-radius: 10px;
+}
+
+.unspoil-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 22px;
+}
+
+.unspoil-nav a {
+  color: var(--unspoil-muted);
+  font-size: 14px;
+  font-weight: 560;
+  text-decoration: none;
+}
+
+.unspoil-nav a:hover,
+.unspoil-nav a:focus-visible {
+  color: var(--unspoil-ink);
+}
+
+.unspoil-card {
+  border: 1px solid var(--unspoil-border);
+  border-radius: 16px;
+  background: var(--unspoil-card);
+}
+
+.unspoil-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: var(--unspoil-green);
+  color: var(--unspoil-green-deep);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.unspoil-link {
+  color: var(--unspoil-green);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(110, 239, 154, 0.45);
+  text-underline-offset: 4px;
+}
+
+.unspoil-link:hover {
+  text-decoration-color: var(--unspoil-green);
+}
+
+.unspoil-btn-primary,
+.unspoil-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.unspoil-btn-primary {
+  background: var(--unspoil-green);
+  color: var(--unspoil-green-deep);
+}
+
+.unspoil-btn-primary:hover {
+  filter: brightness(1.06);
+}
+
+.unspoil-btn-ghost {
+  border: 1px solid var(--unspoil-border);
+  background: transparent;
+  color: var(--unspoil-ink);
+}
+
+.unspoil-btn-ghost:hover {
+  border-color: var(--unspoil-green);
+  color: var(--unspoil-green);
+}
+
+.unspoil-section-kicker {
+  color: var(--unspoil-green);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.unspoil-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.unspoil-ring-badge {
+  border: 1px solid var(--unspoil-border);
+  background: var(--unspoil-green);
+  color: var(--unspoil-green-deep);
+}
+
+.unspoil-shot {
+  border: 1px solid var(--unspoil-border);
+  border-radius: 18px;
+  padding: 6px;
+  background: rgba(8, 61, 34, 0.35);
+}
+
+.unspoil-rhythm {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+}
+
+.unspoil-rhythm li {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 8px 16px;
+  padding: 22px 8px;
+  border-top: 1px solid var(--unspoil-border);
+}
+
+.unspoil-rhythm li:first-child {
+  border-top: 0;
+}
+
+.unspoil-rhythm span {
+  color: var(--unspoil-green);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 13px;
+}
+
+.unspoil-rhythm strong {
+  display: block;
+  font-size: 20px;
+  font-weight: 650;
+}
+
+.unspoil-rhythm p {
+  grid-column: 2;
+  margin: 0;
+  color: var(--unspoil-muted);
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .unspoil-header-inner {
+    padding: 14px 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .unspoil-site * {
+    scroll-behavior: auto !important;
+  }
+}

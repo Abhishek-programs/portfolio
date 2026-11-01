@@ -4,10 +4,11 @@ import { useRef } from 'react';
 import Link from 'next/link';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { Observer } from 'gsap/Observer';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(useGSAP, ScrollTrigger);
+  gsap.registerPlugin(useGSAP, ScrollTrigger, Observer);
 }
 
 const proof = [
@@ -32,7 +33,15 @@ const programizRoles = [
   },
 ];
 
-const systems = [
+const systems: {
+  number: string;
+  title: string;
+  metric: string;
+  copy: string;
+  stack: string;
+  href?: string;
+  linkLabel?: string;
+}[] = [
   {
     number: '01',
     title: 'Code Visualizer',
@@ -51,6 +60,15 @@ const systems = [
   },
   {
     number: '03',
+    title: 'UnSpoil',
+    metric: 'Local-first Android',
+    copy: 'Multi-currency manual budgeting—Nepal-friendly, local-first. Safe-to-spend, goals, and lending on the phone with no account and no bank login.',
+    stack: 'React Native · Expo · SQLite',
+    href: '/apps/unspoil',
+    linkLabel: 'App site ↗',
+  },
+  {
+    number: '04',
     title: 'Grievance Desk',
     metric: 'One write, still explainable',
     copy: 'A desk for fictional complaints. CSV imports are staged, the deadline is five working days in Kathmandu, and the supervisor’s decision shares a transaction with the follow-up.',
@@ -58,14 +76,14 @@ const systems = [
     href: 'https://desk.bhattaraiabhishek.com.np',
   },
   {
-    number: '04',
+    number: '05',
     title: 'AI Content Engine',
     metric: '12 → 6 days',
     copy: 'Architected a GPT/Gemini and Slack workflow that turns raw documentation into structured courses.',
     stack: 'Python · GPT · Gemini · Slack API',
   },
   {
-    number: '05',
+    number: '06',
     title: 'Analytics Pipeline',
     metric: '50% accuracy gain',
     copy: 'Designed privacy-aware server-side conversion tracking and funnel analytics across millions of events.',
@@ -96,6 +114,152 @@ const capabilities = [
   },
 ];
 
+function bindWorkStage(
+  stage: HTMLElement,
+  contextSafe: <T extends (...args: never[]) => void>(func: T) => T,
+  animate: boolean
+) {
+  const panels = gsap.utils.toArray<HTMLElement>('.work-panel', stage);
+  const tabs = gsap.utils.toArray<HTMLButtonElement>('.work-tab', stage);
+  const progress = stage.querySelector<HTMLElement>('.work-progress span');
+  if (!panels.length || !tabs.length) return () => {};
+
+  let current = 0;
+  const count = panels.length;
+
+  gsap.set(panels, { autoAlpha: 0, x: 0, zIndex: 1 });
+  gsap.set(panels[0], { autoAlpha: 1, zIndex: 2 });
+  if (progress) {
+    gsap.set(progress, {
+      scaleX: 1 / count,
+      transformOrigin: 'left center',
+    });
+  }
+
+  const go = contextSafe((index: number, direction: 1 | -1) => {
+    const next = (index + count) % count;
+    if (next === current) return;
+
+    const from = panels[current];
+    const to = panels[next];
+    current = next;
+
+    tabs.forEach((tab, i) => {
+      const selected = i === next;
+      tab.setAttribute('aria-selected', String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+    });
+    panels.forEach((panel, i) => {
+      panel.setAttribute('aria-hidden', String(i !== next));
+    });
+
+    const duration = animate ? 0.45 : 0;
+    gsap.killTweensOf(progress ? [from, to, progress] : [from, to]);
+    gsap.set(from, { zIndex: 1 });
+    gsap.set(to, { zIndex: 2, x: 64 * direction, autoAlpha: 0 });
+    gsap.to(from, {
+      x: -64 * direction,
+      autoAlpha: 0,
+      duration: animate ? 0.32 : 0,
+      ease: 'power2.in',
+    });
+    gsap.to(to, {
+      x: 0,
+      autoAlpha: 1,
+      duration,
+      ease: 'power3.out',
+    });
+    if (progress) {
+      gsap.to(progress, {
+        scaleX: (next + 1) / count,
+        duration,
+        ease: 'power3.out',
+        overwrite: 'auto',
+      });
+    }
+  });
+
+  const onTabClick = tabs.map((tab, index) => {
+    const handler = () => go(index, index >= current ? 1 : -1);
+    tab.addEventListener('click', handler);
+    return handler;
+  });
+
+  const prev = stage.querySelector<HTMLButtonElement>('.work-side-prev');
+  const next = stage.querySelector<HTMLButtonElement>('.work-side-next');
+  const onPrev = () => go(current - 1, -1);
+  const onNext = () => go(current + 1, 1);
+  prev?.addEventListener('click', onPrev);
+  next?.addEventListener('click', onNext);
+
+  const onKeyDown = (event: KeyboardEvent) => {
+    const target = event.target as HTMLElement;
+    if (
+      !target.classList.contains('work-tab') &&
+      !target.classList.contains('work-side')
+    ) {
+      return;
+    }
+    if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+    event.preventDefault();
+    const direction = event.key === 'ArrowRight' ? 1 : -1;
+    go(current + direction, direction);
+    tabs[current]?.focus();
+  };
+  stage.addEventListener('keydown', onKeyDown);
+
+  const panelsEl = stage.querySelector<HTMLElement>('.work-panels');
+  const switcher = stage.querySelector<HTMLElement>('.work-switcher');
+  let wheelLockedUntil = 0;
+  const onWheel = (event: WheelEvent) => {
+    const horizontal = Math.abs(event.deltaX) > Math.abs(event.deltaY);
+    const delta = horizontal ? event.deltaX : event.deltaY;
+    if (!switcher || Math.abs(delta) < 8) return;
+
+    const direction = delta > 0 ? 1 : -1;
+    if (!horizontal) {
+      const box = switcher.getBoundingClientRect();
+      const fullyVisible = box.top >= 0 && box.bottom <= window.innerHeight;
+      const atEdge =
+        (direction === 1 && current === count - 1) ||
+        (direction === -1 && current === 0);
+      if (!fullyVisible || atEdge) return;
+    }
+
+    event.preventDefault();
+    const now = performance.now();
+    if (now < wheelLockedUntil) return;
+    wheelLockedUntil = now + (animate ? 500 : 0);
+    go(current + direction, direction);
+  };
+  switcher?.addEventListener('wheel', onWheel, { passive: false });
+
+  const observer = Observer.create({
+    target: panelsEl ?? stage,
+    type: 'touch',
+    lockAxis: true,
+    tolerance: 16,
+    dragMinimum: 28,
+    allowClicks: true,
+    preventDefault: false,
+    ignore: '.system-link, .work-side',
+    onLeft: () => go(current + 1, 1),
+    onRight: () => go(current - 1, -1),
+  });
+
+  return () => {
+    observer.kill();
+    switcher?.removeEventListener('wheel', onWheel);
+    gsap.killTweensOf(progress ? [...panels, progress] : panels);
+    tabs.forEach((tab, index) =>
+      tab.removeEventListener('click', onTabClick[index])
+    );
+    prev?.removeEventListener('click', onPrev);
+    next?.removeEventListener('click', onNext);
+    stage.removeEventListener('keydown', onKeyDown);
+  };
+}
+
 const chapterLinks = [
   ['01', 'Intro', 'intro'],
   ['02', 'Proof', 'proof'],
@@ -111,7 +275,9 @@ export default function CinematicPortfolio() {
   const root = useRef<HTMLDivElement>(null);
 
   useGSAP(
-    () => {
+    (_context, contextSafe) => {
+      if (!contextSafe) return;
+
       const mm = gsap.matchMedia();
 
       mm.add(
@@ -128,9 +294,11 @@ export default function CinematicPortfolio() {
             mobile: boolean;
             reduceMotion: boolean;
           };
+          const cleanups: Array<() => void> = [];
+          const stage = root.current?.querySelector<HTMLElement>('.work-stage');
 
-          if (reduceMotion) {
-            gsap.set('.systems-track', { x: 0 });
+          if (stage) {
+            cleanups.push(bindWorkStage(stage, contextSafe, !reduceMotion));
           }
 
           if (desktop) {
@@ -141,15 +309,16 @@ export default function CinematicPortfolio() {
               const kicker = chapter.querySelector('.chapter-kicker');
               const reveals = chapter.querySelectorAll('.reveal-item');
               const rule = chapter.querySelector('.chapter-rule');
-              const isWork = chapter.dataset.chapter === 'work';
               const isIntro = chapter.dataset.chapter === 'intro';
+
+              if (chapter.dataset.chapter === 'work') return;
 
               const timeline = gsap.timeline({
                 defaults: { ease: 'power3.out' },
                 scrollTrigger: {
                   trigger: chapter,
                   start: 'top top',
-                  end: isWork ? '+=330%' : '+=130%',
+                  end: '+=130%',
                   pin: true,
                   scrub: 0.8,
                   anticipatePin: 1,
@@ -220,34 +389,17 @@ export default function CinematicPortfolio() {
                     stagger: 0.09,
                   },
                   '-=0.25'
-                );
-
-              if (isWork) {
-                const track = chapter.querySelector('.systems-track');
-                timeline.to(
-                  track,
+                )
+                .fromTo(
+                  rule,
+                  { scaleX: 0 },
                   {
-                    x: () => {
-                      const element = track as HTMLElement;
-                      return -(element.scrollWidth - window.innerWidth + 48);
-                    },
-                    ease: 'none',
-                    duration: 3,
+                    scaleX: 1,
+                    transformOrigin: 'left center',
+                    duration: 0.4,
                   },
-                  '+=0.15'
+                  '-=0.1'
                 );
-              }
-
-              timeline.fromTo(
-                rule,
-                { scaleX: 0 },
-                {
-                  scaleX: 1,
-                  transformOrigin: 'left center',
-                  duration: 0.4,
-                },
-                isWork ? '<' : '-=0.1'
-              );
             });
 
             const blob = root.current?.querySelector('.cursor-blob');
@@ -274,7 +426,9 @@ export default function CinematicPortfolio() {
               };
 
               window.addEventListener('pointermove', move);
-              return () => window.removeEventListener('pointermove', move);
+              cleanups.push(() =>
+                window.removeEventListener('pointermove', move)
+              );
             }
           }
 
@@ -297,6 +451,8 @@ export default function CinematicPortfolio() {
               );
             });
           }
+
+          return () => cleanups.forEach(cleanup => cleanup());
         }
       );
 
@@ -309,8 +465,9 @@ export default function CinematicPortfolio() {
     <div ref={root} className="cinematic-portfolio">
       <noscript>
         <style>{`
-          .systems-track { display: grid; width: auto; transform: none; }
-          .system-card { width: calc(100vw - 12vw); }
+          .work-index, .work-hint, .work-progress, .work-side { display: none; }
+          .work-panels { display: flex; flex-direction: column; gap: 12px; }
+          .work-panel { visibility: visible !important; opacity: 1 !important; }
           .chapter-work, .chapter-work .chapter-frame { min-height: auto; overflow: visible; }
         `}</style>
       </noscript>
@@ -446,11 +603,54 @@ export default function CinematicPortfolio() {
             <div className="title-clip work-heading">
               <h2 className="chapter-title">Made useful.</h2>
             </div>
-            <div className="systems-viewport reveal-item">
-              <div className="systems-track">
-                {systems.map(system => {
-                  const content = (
-                    <>
+            <div
+              className="work-stage reveal-item"
+              style={{ ['--work-count' as string]: systems.length }}
+            >
+              <p className="work-hint mono">
+                Use the arrows, or scroll through them
+              </p>
+              <div
+                className="work-index"
+                role="tablist"
+                aria-label="Selected systems"
+              >
+                {systems.map((system, index) => (
+                  <button
+                    key={system.title}
+                    className="work-tab"
+                    type="button"
+                    role="tab"
+                    id={`work-tab-${system.number}`}
+                    aria-selected={index === 0}
+                    aria-controls={`work-panel-${system.number}`}
+                    tabIndex={index === 0 ? 0 : -1}
+                  >
+                    {system.title}
+                  </button>
+                ))}
+              </div>
+              <div className="work-progress" aria-hidden="true">
+                <span />
+              </div>
+              <div className="work-switcher">
+                <button
+                  className="work-side work-side-prev"
+                  type="button"
+                  aria-label="Previous system"
+                >
+                  ←
+                </button>
+                <div className="work-panels">
+                  {systems.map((system, index) => (
+                    <article
+                      className="system-card work-panel"
+                      key={system.title}
+                      id={`work-panel-${system.number}`}
+                      role="tabpanel"
+                      aria-labelledby={`work-tab-${system.number}`}
+                      aria-hidden={index !== 0}
+                    >
                       <div className="system-top">
                         <span>{system.number}</span>
                         <strong>{system.metric}</strong>
@@ -459,27 +659,26 @@ export default function CinematicPortfolio() {
                       <p>{system.copy}</p>
                       <p className="mono">{system.stack}</p>
                       {system.href && (
-                        <span className="system-link">View live ↗</span>
+                        <Link
+                          className="system-link"
+                          href={system.href}
+                          {...(system.href.startsWith('http')
+                            ? { target: '_blank', rel: 'noreferrer' }
+                            : {})}
+                        >
+                          {system.linkLabel ?? 'View live ↗'}
+                        </Link>
                       )}
-                    </>
-                  );
-
-                  return system.href ? (
-                    <Link
-                      className="system-card"
-                      href={system.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      key={system.number}
-                    >
-                      {content}
-                    </Link>
-                  ) : (
-                    <article className="system-card" key={system.number}>
-                      {content}
                     </article>
-                  );
-                })}
+                  ))}
+                </div>
+                <button
+                  className="work-side work-side-next"
+                  type="button"
+                  aria-label="Next system"
+                >
+                  →
+                </button>
               </div>
             </div>
             <div className="chapter-rule" />
