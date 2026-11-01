@@ -784,6 +784,7 @@ export default function CinematicPortfolio() {
             </div>
             <div className="contact-footer reveal-item">
               <span>Kathmandu, Nepal</span>
+              <Link href="/apps">Apps ↗</Link>
               <Link href="/v1">Previous portfolio · v1 ↗</Link>
               <span>© {new Date().getFullYear()}</span>
             </div>
