@@ -1,22 +1,4 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
-
-export const metadata: Metadata = {
-  title: 'UnSpoil Privacy Policy',
-  description:
-    'Privacy policy for UnSpoil, a local-first personal finance app for Android. No account, no cloud sync, data stays on your device.',
-  alternates: {
-    canonical: 'https://bhattaraiabhishek.com.np/apps/unspoil/privacy',
-  },
-  openGraph: {
-    title: 'UnSpoil Privacy Policy',
-    description:
-      'How UnSpoil handles your data: stored on your device only, optional backups, and optional payment-helper permissions.',
-    url: 'https://bhattaraiabhishek.com.np/apps/unspoil/privacy',
-    siteName: 'Abhishek Bhattarai',
-    type: 'website',
-  },
-};
 
 const sections: { title: string; body: string[] }[] = [
   {
@@ -84,47 +66,33 @@ const sections: { title: string; body: string[] }[] = [
 
 export default function UnspoilPrivacyPage() {
   return (
-    <div className="min-h-screen bg-[var(--paper)] text-[var(--ink)]">
-      <header className="border-b border-[var(--line)] px-6 py-5 md:px-10">
-        <div className="mx-auto flex max-w-3xl flex-wrap items-baseline justify-between gap-3">
-          <div>
-            <p className="font-mono text-xs uppercase tracking-widest text-[var(--muted)]">
-              UnSpoil · app.unspoil
-            </p>
-            <h1 className="mt-1 text-2xl font-semibold md:text-3xl">Privacy Policy</h1>
-          </div>
-          <Link
-            href="/"
-            className="text-sm font-medium underline decoration-[var(--line)] underline-offset-4 hover:decoration-[var(--ink)]"
-          >
-            Portfolio home
-          </Link>
-        </div>
-      </header>
+    <main className="mx-auto max-w-3xl px-5 py-10 md:px-8 md:py-14">
+      <p className="unspoil-section-kicker">Legal</p>
+      <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Privacy Policy</h1>
+      <p className="mt-4 text-sm text-[var(--unspoil-muted)]">Last updated: November 1, 2026</p>
+      <p className="mt-2 text-sm">
+        <Link href="/apps/unspoil" className="unspoil-link">
+          ← Back to UnSpoil
+        </Link>
+      </p>
 
-      <main className="mx-auto max-w-3xl px-6 py-10 md:px-10 md:py-14">
-        <p className="mb-10 text-sm text-[var(--muted)]">
-          Last updated: November 1, 2026
-        </p>
+      <div className="mt-12 space-y-10">
+        {sections.map(section => (
+          <section key={section.title}>
+            <h2 className="mb-3 text-lg font-semibold text-[var(--unspoil-ink)]">{section.title}</h2>
+            <div className="space-y-3 text-[15px] leading-relaxed text-[var(--unspoil-muted)]">
+              {section.body.map(paragraph => (
+                <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
 
-        <div className="space-y-10">
-          {sections.map(section => (
-            <section key={section.title}>
-              <h2 className="mb-3 text-lg font-semibold">{section.title}</h2>
-              <div className="space-y-3 text-[15px] leading-relaxed text-[var(--muted)]">
-                {section.body.map(paragraph => (
-                  <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
-
-        <p className="mt-14 border-t border-[var(--line)] pt-8 text-sm text-[var(--muted)]">
-          Play Store listing: UnSpoil — personal finance for Nepal (NPR). All data stays on your
-          device unless you export it yourself.
-        </p>
-      </main>
-    </div>
+      <p className="mt-14 border-t border-[var(--unspoil-border)] pt-8 text-sm text-[var(--unspoil-muted)]">
+        UnSpoil — multi-currency personal finance for Android. All data stays on your device unless
+        you export it yourself.
+      </p>
+    </main>
   );
 }
