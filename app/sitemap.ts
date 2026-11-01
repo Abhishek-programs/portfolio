@@ -9,6 +9,10 @@ const sitemap = () => {
       lastModified: new Date(),
     },
     {
+      url: 'https://bhattaraiabhishek.com.np/apps',
+      lastModified: new Date(),
+    },
+    {
       url: 'https://bhattaraiabhishek.com.np/apps/unspoil',
       lastModified: new Date(),
     },
