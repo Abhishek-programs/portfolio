@@ -36,7 +36,7 @@ const steps = [
   },
   {
     title: 'Pin it',
-    body: 'A live picture-in-picture panel appears on the display you’re using, above everything else.',
+    body: 'A live picture-in-picture panel appears on the display you’re using, or on all of them if you prefer.',
   },
   {
     title: 'Go full screen',
@@ -50,16 +50,16 @@ const features = [
     body: 'The panel joins every Space, including full-screen app Spaces, wherever macOS allows overlays.',
   },
   {
-    title: 'Any display',
-    body: 'The panel opens where your pointer is. Drag it to another monitor; unplug one and it comes back.',
+    title: 'One display or all of them',
+    body: 'One panel where your pointer is, or flip a switch for a copy on every monitor. Unplug one and it adjusts.',
+  },
+  {
+    title: 'Always there',
+    body: 'Switch on Launch at login and it waits in your menu bar after every restart.',
   },
   {
     title: 'Live, not a screenshot',
-    body: 'Up to 30 fps through ScreenCaptureKit, and it stays sharp when you resize the source.',
-  },
-  {
-    title: 'Light on battery',
-    body: 'One capture stream, and live frames redraw only the panel, not the rest of the app.',
+    body: 'Up to 30 fps from one shared ScreenCaptureKit stream, and it stays sharp when you resize the source.',
   },
   {
     title: 'Private by design',
@@ -67,7 +67,7 @@ const features = [
   },
   {
     title: 'Open source',
-    body: 'About 1,100 lines of Swift with no dependencies. MIT licensed. Read it in an afternoon.',
+    body: 'About 1,400 lines of Swift with no dependencies. MIT licensed. Read it in an afternoon.',
   },
 ];
 

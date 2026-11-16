@@ -12,11 +12,11 @@ export const INSTALL_CMD =
 export const faqs = [
   {
     q: 'Can I keep a FaceTime, Zoom, Google Meet, or Teams call visible while another app is full screen?',
-    a: 'Yes, that is what Pin To Top is for. Pin the call window, then go full screen in your browser, IDE, or slides. The call stays in a small picture-in-picture panel in every Space, including full-screen Spaces where macOS allows overlays.',
+    a: 'Yes, that is what Pin To Top is for. Pin the call window, then go full screen in your browser, IDE, or slides. The call stays in a small picture-in-picture panel in every Space (on one display or all of them), including full-screen Spaces where macOS allows overlays.',
   },
   {
     q: 'How is this different from other “always on top” apps?',
-    a: 'Many of them keep a window on top only in the Space where you pinned it, so it disappears when you switch Spaces or go full screen. Pin To Top puts a live copy of the window in a panel that joins every Space, so the call follows you wherever you work. Drag it to whichever display you like.',
+    a: 'Many of them keep a window on top only in the Space where you pinned it, so it disappears when you switch Spaces or go full screen. Pin To Top puts a live copy of the window in a panel that joins every Space, so the call follows you wherever you work. Keep it on one display, or switch on a copy for every display.',
   },
   {
     q: 'How do I keep a window always on top on a Mac?',
