@@ -1,0 +1,388 @@
+/* Shared light theme for every /apps page.
+   Each app sets only its accent tokens on .app-site (see the per-app CSS). */
+.app-site {
+  --paper: #fbfbf9;
+  --surface: #f3f3ef;
+  --card: #ffffff;
+  --ink: #15171c;
+  --muted: #555a64;
+  --faint: #6b7079;
+  --line: rgba(21, 23, 28, 0.1);
+  --line-strong: rgba(21, 23, 28, 0.18);
+
+  /* Defaults; each app overrides these. */
+  --accent: #15171c;
+  --accent-text: #15171c;
+  --accent-on: #ffffff;
+  --accent-soft: #eeeeea;
+  --accent-detail: #15171c;
+
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--font-apps), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-site h1,
+.app-site h2,
+.app-site h3 {
+  font-family: var(--font-display), var(--font-apps), sans-serif;
+  text-wrap: balance;
+}
+
+.app-site ::selection {
+  color: var(--ink);
+  background: var(--accent-soft);
+}
+
+.app-site :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.app-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.app-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Header */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--line);
+  background: rgba(251, 251, 249, 0.94);
+}
+
+.app-header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 28px;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 14px 20px;
+}
+
+.app-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-family: var(--font-display), sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.app-brand img {
+  border-radius: 9px;
+}
+
+.app-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 22px;
+}
+
+.app-nav a {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s ease-out;
+}
+
+.app-nav a:hover {
+  color: var(--ink);
+}
+
+.app-nav .app-nav-cta {
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+/* Text */
+.app-lede {
+  max-width: 36rem;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.app-body {
+  max-width: 40rem;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.app-meta {
+  color: var(--faint);
+  font-size: 13px;
+  letter-spacing: 0.01em;
+}
+
+.app-link {
+  color: var(--accent-text);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+/* Buttons */
+.app-btn,
+.app-btn-quiet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease-out,
+    border-color 0.15s ease-out,
+    color 0.15s ease-out;
+}
+
+.app-btn {
+  background: var(--accent);
+  color: var(--accent-on);
+}
+
+.app-btn:hover {
+  background: var(--accent-text);
+}
+
+.app-btn[aria-disabled='true'] {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  cursor: default;
+}
+
+.app-btn-quiet {
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+}
+
+.app-btn-quiet:hover {
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+/* Sections */
+.app-band {
+  border-block: 1px solid var(--line);
+  background: var(--surface);
+}
+
+/* Divided list: replaces card grids. */
+.app-list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line-strong);
+}
+
+.app-list li {
+  padding: 22px 0 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.app-list h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.app-list p {
+  margin-top: 6px;
+  max-width: 34rem;
+  color: var(--muted);
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+
+@media (min-width: 640px) {
+  .app-list {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-list[data-cols='3'] {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Ordered steps: the number carries the order. */
+.app-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.app-steps li {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 6px 14px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  counter-increment: step;
+}
+
+.app-steps li:first-child {
+  border-top: 0;
+}
+
+.app-steps li::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.app-steps strong {
+  align-self: center;
+  font-family: var(--font-display), sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.app-steps p {
+  grid-column: 2;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* The one place an app's color takes over a whole block. */
+.app-cta {
+  border-radius: 20px;
+  background: var(--accent);
+  color: var(--accent-on);
+}
+
+.app-cta p {
+  color: color-mix(in srgb, var(--accent-on) 84%, var(--accent));
+}
+
+.app-cta .app-btn {
+  background: var(--accent-on);
+  color: var(--accent-text);
+}
+
+.app-cta .app-btn:hover {
+  background: var(--accent-soft);
+}
+
+.app-cta .app-btn-quiet {
+  border-color: color-mix(in srgb, var(--accent-on) 45%, transparent);
+  color: var(--accent-on);
+}
+
+.app-cta .app-btn-quiet:hover {
+  border-color: var(--accent-on);
+  color: var(--accent-on);
+}
+
+.app-cta :focus-visible {
+  outline-color: var(--accent-on);
+}
+
+/* Code */
+.app-code {
+  overflow-x: auto;
+  margin: 0;
+  padding: 22px 24px;
+  border-radius: 14px;
+  background: var(--ink);
+  color: #eef0f4;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.app-code ::selection {
+  color: var(--ink);
+  background: #ffffff;
+}
+
+/* FAQ */
+.app-faq {
+  border-bottom: 1px solid var(--line);
+}
+
+.app-faq summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+  list-style: none;
+}
+
+.app-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.app-faq summary::after {
+  content: '+';
+  flex: none;
+  color: var(--accent-text);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.app-faq[open] summary::after {
+  content: '–';
+}
+
+.app-faq p {
+  max-width: 44rem;
+  padding: 0 0 22px;
+  color: var(--muted);
+  font-size: 15.5px;
+  line-height: 1.65;
+}
+
+/* Footer */
+.app-footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.app-footer a:not(.app-link) {
+  text-decoration: none;
+}
+
+.app-footer a:not(.app-link):hover {
+  color: var(--ink);
+}
+
+@media (min-width: 768px) {
+  .app-header-inner {
+    padding: 14px 32px;
+  }
+}

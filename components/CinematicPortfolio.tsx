@@ -69,6 +69,15 @@ const systems: {
   },
   {
     number: '04',
+    title: 'Pin To Top',
+    metric: 'Open-source macOS',
+    copy: 'Picture-in-picture for video calls on Mac. The call follows you into full-screen apps and every Space, on any display, from a free DMG or the source.',
+    stack: 'Swift · SwiftUI · ScreenCaptureKit · AppKit',
+    href: '/apps/pintotop',
+    linkLabel: 'App site ↗',
+  },
+  {
+    number: '05',
     title: 'Grievance Desk',
     metric: 'One write, still explainable',
     copy: 'A desk for fictional complaints. CSV imports are staged, the deadline is five working days in Kathmandu, and the supervisor’s decision shares a transaction with the follow-up.',
@@ -76,14 +85,14 @@ const systems: {
     href: 'https://desk.bhattaraiabhishek.com.np',
   },
   {
-    number: '05',
+    number: '06',
     title: 'AI Content Engine',
     metric: '12 → 6 days',
     copy: 'Architected a GPT/Gemini and Slack workflow that turns raw documentation into structured courses.',
     stack: 'Python · GPT · Gemini · Slack API',
   },
   {
-    number: '06',
+    number: '07',
     title: 'Analytics Pipeline',
     metric: '50% accuracy gain',
     copy: 'Designed privacy-aware server-side conversion tracking and funnel analytics across millions of events.',

@@ -5,10 +5,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(useGSAP, ScrollTrigger);
+  gsap.registerPlugin(useGSAP);
 }
 
 const pillars = [
@@ -90,9 +89,9 @@ const screenshots = [
 const RING_GAP = 0;
 const RING_WEIGHTS = [0.64, 0.22, 0.14];
 const RING_COLORS = [
-  'var(--unspoil-ring)',
-  'var(--unspoil-red)',
-  'var(--unspoil-purple)',
+  'var(--ring-green)',
+  'var(--ring-red)',
+  'var(--ring-purple)',
 ];
 
 function ringSegments() {
@@ -119,16 +118,14 @@ export default function UnspoilLanding() {
 
   useGSAP(
     () => {
-      const reduce = window.matchMedia(
-        '(prefers-reduced-motion: reduce)'
-      ).matches;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-      if (!reduce && amount.current) {
+      if (amount.current) {
         const counter = { value: 0 };
         gsap.to(counter, {
           value: 42500,
           duration: 1.25,
-          ease: 'power2.out',
+          ease: 'expo.out',
           onUpdate: () => {
             if (!amount.current) return;
             amount.current.textContent = Math.round(
@@ -136,49 +133,24 @@ export default function UnspoilLanding() {
             ).toLocaleString('en-US');
           },
         });
-        gsap.from('.ring-seg', {
-          attr: {
-            strokeDashoffset: (_index, element) => {
-              const node = element as SVGCircleElement;
-              return -(
-                Number(node.dataset.start) + Number(node.dataset.length)
-              );
-            },
-          },
-          duration: 1.15,
-          stagger: 0.08,
-          ease: 'power3.out',
-        });
-        gsap.from('.hero-copy > *', {
-          autoAlpha: 0,
-          y: 18,
-          duration: 0.7,
-          stagger: 0.07,
-          ease: 'power3.out',
-        });
-        gsap.from('.unspoil-ring-badge', {
-          autoAlpha: 0,
-          scale: 0.85,
-          duration: 0.5,
-          delay: 0.7,
-          ease: 'power2.out',
-        });
       }
-
-      if (reduce) return;
-
-      gsap.utils.toArray<HTMLElement>('.unspoil-reveal').forEach(block => {
-        gsap.from(block, {
-          autoAlpha: 0,
-          y: 24,
-          duration: 0.7,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: block,
-            start: 'top 86%',
-            once: true,
+      gsap.from('.ring-seg', {
+        attr: {
+          strokeDashoffset: (_index, element) => {
+            const node = element as SVGCircleElement;
+            return -(Number(node.dataset.start) + Number(node.dataset.length));
           },
-        });
+        },
+        duration: 1.15,
+        stagger: 0.08,
+        ease: 'expo.out',
+      });
+      gsap.from('.unspoil-ring-badge', {
+        autoAlpha: 0,
+        scale: 0.85,
+        duration: 0.5,
+        delay: 0.7,
+        ease: 'expo.out',
       });
     },
     { scope: root }
@@ -186,16 +158,13 @@ export default function UnspoilLanding() {
 
   return (
     <div ref={root}>
-      <section className="border-b border-[var(--unspoil-border)]">
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 py-14 md:grid-cols-[1.05fr_0.95fr] md:items-center md:px-8 md:py-20">
-          <div className="hero-copy">
-            <span className="unspoil-chip">
-              Multi-currency · Nepal-friendly · Android
-            </span>
-            <h1 className="mt-5 text-4xl font-semibold leading-[1.08] tracking-tight md:text-5xl">
+      <section className="border-b border-[var(--line)]">
+        <div className="mx-auto grid max-w-6xl gap-12 px-5 py-14 md:grid-cols-[1.05fr_0.95fr] md:items-center md:px-8 md:py-24">
+          <div>
+            <h1 className="text-4xl font-semibold leading-[1.06] tracking-tight md:text-[2.75rem] lg:text-[3.4rem]">
               Your monthly money playbook—honest safe-to-spend, no bank login.
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-[var(--unspoil-muted)]">
+            <p className="app-lede mt-6">
               UnSpoil is for people who want structure without linking accounts
               or ads. Plan buckets, log expenses manually, track goals and
               lending, and see what is actually left to spend after salary
@@ -203,18 +172,15 @@ export default function UnspoilLanding() {
               Settings.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <span
-                className="unspoil-btn-primary cursor-default"
-                aria-label="Google Play listing coming soon"
-              >
+              <span className="app-btn" aria-disabled="true">
                 Google Play — coming soon
               </span>
-              <Link href="/apps/unspoil/privacy" className="unspoil-btn-ghost">
+              <Link href="/apps/unspoil/privacy" className="app-btn-quiet">
                 Privacy policy
               </Link>
             </div>
-            <p className="unspoil-mono mt-6 text-[11px] uppercase tracking-wide text-[var(--unspoil-faint)]">
-              No account · No cloud sync · Data stays on device
+            <p className="app-meta mt-6">
+              Android · No account · No cloud sync · Data stays on device
             </p>
           </div>
           <div className="relative mx-auto aspect-square w-full max-w-[320px] md:max-w-[380px]">
@@ -224,7 +190,7 @@ export default function UnspoilLanding() {
                 cy="120"
                 r="88"
                 fill="none"
-                stroke="var(--unspoil-track)"
+                stroke="var(--line)"
                 strokeWidth="16"
               />
               {segments.map(segment => (
@@ -247,20 +213,18 @@ export default function UnspoilLanding() {
               ))}
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-              <p className="unspoil-mono text-[10px] uppercase tracking-widest text-[var(--unspoil-faint)]">
+              <p className="text-[13px] font-medium text-[var(--muted)]">
                 Safe to spend
               </p>
               <p
                 ref={amount}
-                className="unspoil-tabular mt-1 text-4xl font-semibold tracking-tight md:text-5xl"
+                className="app-tabular mt-1 font-[family-name:var(--font-display)] text-4xl font-semibold tracking-tight md:text-5xl"
               >
                 42,500
               </p>
-              <p className="mt-1 text-xs text-[var(--unspoil-muted)]">
-                Example · your currency
-              </p>
+              <p className="app-meta mt-1">Example · your currency</p>
             </div>
-            <div className="unspoil-ring-badge absolute right-2 top-[16%] rounded-full px-2.5 py-1 text-[11px] font-bold">
+            <div className="unspoil-ring-badge absolute right-2 top-[16%] rounded-full px-2.5 py-1 text-[12px] font-bold">
               12d
             </div>
           </div>
@@ -269,46 +233,41 @@ export default function UnspoilLanding() {
 
       <section
         id="features"
-        className="unspoil-reveal mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20"
+        className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24"
       >
-        <p className="unspoil-section-kicker">Built for clarity</p>
-        <h2 className="mt-2 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
+        <h2 className="max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
           Structure that matches how you actually get paid and spend.
         </h2>
-        <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-[var(--unspoil-muted)]">
+        <p className="app-body mt-4">
           Manual entry on purpose—you stay in control. The app does the
           arithmetic: ceilings, safe-to-spend, EF targets, and goal progress
           from the playbook you set once and tweak in Settings.
         </p>
-        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="app-list mt-12" data-cols="3">
           {pillars.map(item => (
-            <li key={item.title} className="unspoil-card p-6">
-              <h3 className="text-lg font-semibold">{item.title}</h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-[var(--unspoil-muted)]">
-                {item.body}
-              </p>
+            <li key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
             </li>
           ))}
         </ul>
       </section>
 
-      <section className="unspoil-reveal border-y border-[var(--unspoil-border)] bg-[var(--unspoil-surface)]">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:px-8 md:py-20 lg:grid-cols-2 lg:items-center">
+      <section className="app-band">
+        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-2 lg:items-center">
           <div>
-            <p className="unspoil-section-kicker">Month rhythm</p>
-            <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
+            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
               Salary in, plan unlocked, checklist done.
             </h2>
-            <p className="mt-4 text-[17px] leading-relaxed text-[var(--unspoil-muted)]">
+            <p className="app-body mt-4">
               The month starts on the day you choose, not on the calendar. A
               center + button logs an expense, income, or lend/borrow. Play
               lists it as manual finance, not open banking.
             </p>
           </div>
-          <ol className="unspoil-rhythm">
-            {rhythm.map((step, index) => (
+          <ol className="app-steps">
+            {rhythm.map(step => (
               <li key={step.title}>
-                <span>0{index + 1}</span>
                 <strong>{step.title}</strong>
                 <p>{step.body}</p>
               </li>
@@ -319,13 +278,12 @@ export default function UnspoilLanding() {
 
       <section
         id="screenshots"
-        className="unspoil-reveal mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20"
+        className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24"
       >
-        <p className="unspoil-section-kicker">Screenshots</p>
-        <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
+        <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
           Light, calm, numbers-first.
         </h2>
-        <p className="mt-3 max-w-xl text-[var(--unspoil-muted)]">
+        <p className="app-body mt-3">
           The phone stays light. Green means the plan is healthy. Amber and red
           show up when a ceiling is close.
         </p>
@@ -337,55 +295,48 @@ export default function UnspoilLanding() {
                 alt={shot.alt}
                 width={540}
                 height={1122}
-                className="h-auto w-full rounded-[12px]"
+                className="h-auto w-full"
               />
             </figure>
           ))}
         </div>
       </section>
 
-      <section className="unspoil-reveal border-t border-[var(--unspoil-border)] bg-[var(--unspoil-surface)]">
-        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
-          <p className="unspoil-section-kicker">Optional power-ups</p>
-          <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
-            You choose what to enable.
+      <section className="app-band">
+        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
+          <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+            Optional power-ups. You choose what to enable.
           </h2>
-          <ul className="mt-10 grid gap-5 md:grid-cols-3">
+          <ul className="app-list mt-10" data-cols="3">
             {optional.map(item => (
-              <li key={item.title} className="unspoil-card p-6">
-                <h3 className="font-semibold">{item.title}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-[var(--unspoil-muted)]">
-                  {item.body}
-                </p>
+              <li key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="unspoil-reveal mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
-        <div className="unspoil-card grid gap-8 p-8 md:grid-cols-[1fr_auto] md:items-center md:p-10">
+      <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
+        <div className="app-cta grid gap-8 p-8 md:grid-cols-[1fr_auto] md:items-center md:p-12">
           <div>
-            <p className="unspoil-section-kicker">Privacy</p>
-            <h2 className="mt-2 text-2xl font-semibold md:text-3xl">
+            <h2 className="text-2xl font-semibold md:text-3xl">
               Your financial data never needs our servers.
             </h2>
-            <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-[var(--unspoil-muted)]">
+            <p className="mt-3 max-w-xl text-[15.5px] leading-relaxed">
               UnSpoil is published by Abhishek Bhattarai. The privacy policy
               explains on-device storage, optional backups, and optional Android
               permissions for the payment helper and nudges.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
-            <Link
-              href="/apps/unspoil/privacy"
-              className="unspoil-btn-primary text-center"
-            >
+            <Link href="/apps/unspoil/privacy" className="app-btn">
               Read privacy policy
             </Link>
             <a
               href="mailto:i.abhishek.bhattarai@gmail.com"
-              className="unspoil-btn-ghost text-center"
+              className="app-btn-quiet"
             >
               Email feedback
             </a>
@@ -393,20 +344,19 @@ export default function UnspoilLanding() {
         </div>
       </section>
 
-      <footer className="border-t border-[var(--unspoil-border)] bg-[var(--unspoil-surface)]">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-8 text-sm text-[var(--unspoil-muted)] md:px-8">
+      <footer className="app-footer">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-8 md:px-8">
           <p>
             © {new Date().getFullYear()} Abhishek Bhattarai ·{' '}
-            <Link href="/apps/unspoil/privacy" className="unspoil-link">
+            <Link href="/apps/unspoil/privacy" className="app-link">
               Privacy
+            </Link>{' '}
+            ·{' '}
+            <Link href="/apps" className="app-link">
+              More apps
             </Link>
           </p>
-          <Link
-            href="/"
-            className="no-underline hover:text-[var(--unspoil-ink)]"
-          >
-            bhattaraiabhishek.com.np
-          </Link>
+          <Link href="/">bhattaraiabhishek.com.np</Link>
         </div>
       </footer>
     </div>
