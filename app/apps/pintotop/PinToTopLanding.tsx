@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import Link from 'next/link';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { DMG_URL, REPO_URL, faqs } from './content';
+import { DMG_URL, INSTALL_CMD, REPO_URL, faqs } from './content';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(useGSAP);
@@ -268,20 +268,23 @@ export default function PinToTopLanding() {
             <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
               Install in a minute.
             </h2>
+            <p className="app-body mt-4">
+              Paste one line in Terminal. It puts Pin To Top in Applications
+              and opens it, with no security warning to click through.
+            </p>
             <ol className="app-steps mt-6">
               <li>
-                <strong>Download and drag</strong>
+                <strong>Prefer the DMG?</strong>
                 <p>
                   Open <a href={DMG_URL} className="app-link">PinToTop.dmg</a>{' '}
                   and drag Pin To Top into Applications.
                 </p>
               </li>
               <li>
-                <strong>Allow it once</strong>
+                <strong>Click Done, not Move to Trash</strong>
                 <p>
-                  The app isn’t notarized yet, so macOS warns on first launch.
-                  Click Done, then System Settings → Privacy &amp; Security →
-                  Open Anyway.
+                  The app isn’t notarized yet, so macOS warns once. Then go to
+                  System Settings → Privacy &amp; Security → Open Anyway.
                 </p>
               </li>
               <li>
@@ -292,14 +295,13 @@ export default function PinToTopLanding() {
                 </p>
               </li>
             </ol>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href={DMG_URL} className="app-btn">
-                Download for Mac
-              </a>
-            </div>
           </div>
           <div className="min-w-0">
-            <p className="app-meta mb-3">Or build it from source:</p>
+            <p className="app-meta mb-3">Terminal, one line:</p>
+            <pre className="app-code">
+              <code>{INSTALL_CMD}</code>
+            </pre>
+            <p className="app-meta mb-3 mt-8">Or build it from source:</p>
           <pre className="app-code">
             <code>
               {`git clone ${REPO_URL}
