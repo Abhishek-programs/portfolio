@@ -5,6 +5,9 @@ export const SITE_URL = 'https://bhattaraiabhishek.com.np/apps/pintotop';
 export const REPO_URL = 'https://github.com/Abhishek-programs/PinToTop';
 // Always points at the newest GitHub Release asset.
 export const DMG_URL = `${REPO_URL}/releases/latest/download/PinToTop.dmg`;
+// curl downloads aren't quarantined, so this skips the Gatekeeper dialog.
+export const INSTALL_CMD =
+  'curl -fsSL https://raw.githubusercontent.com/Abhishek-programs/PinToTop/main/install.sh | zsh';
 
 export const faqs = [
   {
@@ -33,10 +36,10 @@ export const faqs = [
   },
   {
     q: 'Why does macOS say it can’t verify the app?',
-    a: 'Pin To Top is free and isn’t signed with a paid Apple Developer ID yet. Open it once, click Done, then go to System Settings → Privacy & Security and click Open Anyway. You only do this once. If you’d rather not trust a download, build it from source.',
+    a: 'Pin To Top is free and isn’t signed with a paid Apple Developer ID yet. Skip it entirely with the one-line Terminal install. With the DMG: open it once, click Done (not Move to Trash), then go to System Settings → Privacy & Security and click Open Anyway. You only do this once.',
   },
   {
     q: 'Which Macs are supported?',
-    a: 'macOS 14 Sonoma or later on Apple Silicon. Download the DMG, or build it from source with the Xcode Command Line Tools.',
+    a: 'macOS 14 Sonoma or later on Apple Silicon. Install with one Terminal command, download the DMG, or build it from source.',
   },
 ];
