@@ -67,11 +67,14 @@ const sections: { title: string; body: string[] }[] = [
 export default function UnspoilPrivacyPage() {
   return (
     <main className="mx-auto max-w-3xl px-5 py-10 md:px-8 md:py-14">
-      <p className="unspoil-section-kicker">Legal</p>
-      <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Privacy Policy</h1>
-      <p className="mt-4 text-sm text-[var(--unspoil-muted)]">Last updated: November 1, 2026</p>
+      <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
+        Privacy Policy
+      </h1>
+      <p className="mt-4 text-sm text-[var(--muted)]">
+        Last updated: November 1, 2026
+      </p>
       <p className="mt-2 text-sm">
-        <Link href="/apps/unspoil" className="unspoil-link">
+        <Link href="/apps/unspoil" className="app-link">
           ← Back to UnSpoil
         </Link>
       </p>
@@ -79,8 +82,10 @@ export default function UnspoilPrivacyPage() {
       <div className="mt-12 space-y-10">
         {sections.map(section => (
           <section key={section.title}>
-            <h2 className="mb-3 text-lg font-semibold text-[var(--unspoil-ink)]">{section.title}</h2>
-            <div className="space-y-3 text-[15px] leading-relaxed text-[var(--unspoil-muted)]">
+            <h2 className="mb-3 text-lg font-semibold text-[var(--ink)]">
+              {section.title}
+            </h2>
+            <div className="space-y-3 text-[15px] leading-relaxed text-[var(--muted)]">
               {section.body.map(paragraph => (
                 <p key={paragraph.slice(0, 48)}>{paragraph}</p>
               ))}
@@ -89,9 +94,9 @@ export default function UnspoilPrivacyPage() {
         ))}
       </div>
 
-      <p className="mt-14 border-t border-[var(--unspoil-border)] pt-8 text-sm text-[var(--unspoil-muted)]">
-        UnSpoil — multi-currency personal finance for Android. All data stays on your device unless
-        you export it yourself.
+      <p className="mt-14 border-t border-[var(--line)] pt-8 text-sm text-[var(--muted)]">
+        UnSpoil — multi-currency personal finance for Android. All data stays on
+        your device unless you export it yourself.
       </p>
     </main>
   );

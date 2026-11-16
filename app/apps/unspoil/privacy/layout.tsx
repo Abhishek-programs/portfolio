@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function UnspoilPrivacyLayout({ children }: { children: React.ReactNode }) {
+export default function UnspoilPrivacyLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return children;
 }
