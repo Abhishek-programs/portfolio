@@ -11,6 +11,10 @@ export const INSTALL_CMD =
 
 export const faqs = [
   {
+    q: 'How do I see the people on my video call while using a full-screen app on Mac?',
+    a: 'Install Pin To Top, click its menu bar icon, and pin your call window. Then go full screen in any app. The call keeps playing in a small floating panel in the corner, so you no longer have to swipe back to the call to see faces, and you don’t need Split View.',
+  },
+  {
     q: 'Can I keep a FaceTime, Zoom, Google Meet, or Teams call visible while another app is full screen?',
     a: 'Yes, that is what Pin To Top is for. Pin the call window, then go full screen in your browser, IDE, or slides. The call stays in a small picture-in-picture panel in every Space (on one display or all of them), including full-screen Spaces where macOS allows overlays.',
   },
@@ -29,6 +33,10 @@ export const faqs = [
   {
     q: 'Why does it need Screen Recording permission?',
     a: 'That is the only way macOS lets one app see another app’s window. Pin To Top captures just the window you pick, with audio off, and never writes frames to disk or sends them anywhere. There is no network code at all.',
+  },
+  {
+    q: 'Does it work with multiple monitors, and can it start at login?',
+    a: 'Yes. By default the floating panel shows on the display you’re using; switch on Show on all displays to get a copy on every screen. Switch on Launch at login and it waits in the menu bar after every restart.',
   },
   {
     q: 'Is Pin To Top free?',

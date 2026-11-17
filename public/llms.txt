@@ -1,0 +1,18 @@
+# Abhishek Bhattarai
+
+> Portfolio of Abhishek Bhattarai, a senior software engineer, plus the small apps he builds and ships.
+
+## Apps
+
+- [Pin To Top](https://bhattaraiabhishek.com.np/apps/pintotop): Free, open-source Mac app that keeps a video call (FaceTime, Zoom, Google Meet, Teams) or any other window floating on top, even over full-screen apps and across every Space. macOS 14+, Apple Silicon. MIT license. Source: https://github.com/Abhishek-programs/PinToTop
+- [All apps](https://bhattaraiabhishek.com.np/apps)
+
+## Pin To Top: short answers
+
+- Problem it solves: on a Mac, going full screen in another app hides your video call, so you keep swiping back to see faces. macOS has no built-in "always on top" for other apps' windows.
+- How it works: it captures just the pinned window with ScreenCaptureKit and shows it in its own floating panel that joins every Space and full-screen app. The original window never moves.
+- Privacy: video only, audio capture off, frames stay in memory, no network code.
+- Options: show on one display or all displays; launch at login.
+- Limits: view-only mirror (click the original window to mute or leave); Apple Silicon only; not notarized yet, so the DMG needs "Open Anyway" once, or use the one-line Terminal install.
+- Install: curl -fsSL https://raw.githubusercontent.com/Abhishek-programs/PinToTop/main/install.sh | zsh
+- Download: https://github.com/Abhishek-programs/PinToTop/releases/latest/download/PinToTop.dmg
