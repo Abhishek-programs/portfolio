@@ -29,18 +29,18 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/apps/pintotop/icon-512.png',
-        width: 512,
-        height: 512,
-        alt: 'Pin To Top app icon',
+        url: '/apps/pintotop/demo-poster.jpg',
+        width: 1440,
+        height: 700,
+        alt: 'A video call floating in the corner over a full-screen app on a Mac',
       },
     ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title,
     description,
-    images: ['/apps/pintotop/icon-512.png'],
+    images: ['/apps/pintotop/demo-poster.jpg'],
   },
 };
 
@@ -51,9 +51,20 @@ const structuredData = [
     name: 'Pin To Top',
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'macOS 14 or later',
+    processorRequirements: 'Apple Silicon (arm64)',
+    softwareVersion: '0.4',
+    isAccessibleForFree: true,
+    featureList: [
+      'Keep a video call visible over full-screen apps',
+      'Follows you across every Space',
+      'Show on one display or all displays',
+      'Launch at login',
+      'Video only, no audio, no network code',
+    ],
     description,
     url: SITE_URL,
     image: `${SITE_URL}/icon-512.png`,
+    screenshot: `${SITE_URL}/demo-poster.jpg`,
     license: 'https://opensource.org/licenses/MIT',
     codeRepository: REPO_URL,
     downloadUrl: DMG_URL,
@@ -63,6 +74,17 @@ const structuredData = [
       name: 'Abhishek Bhattarai',
       url: 'https://bhattaraiabhishek.com.np',
     },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: 'Pin To Top demo: a video stays on top over full-screen apps',
+    description:
+      'A window is pinned from the menu bar, then the user switches to full-screen apps and other Spaces while the video keeps playing in a floating panel.',
+    thumbnailUrl: `${SITE_URL}/demo-poster.jpg`,
+    contentUrl: `${SITE_URL}/demo.mp4`,
+    uploadDate: '2026-11-16',
+    embedUrl: SITE_URL,
   },
   {
     '@context': 'https://schema.org',
