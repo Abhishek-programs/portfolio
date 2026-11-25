@@ -24,6 +24,14 @@ const sitemap = () => {
       url: 'https://bhattaraiabhishek.com.np/apps/pintotop',
       lastModified: new Date(),
     },
+    {
+      url: 'https://bhattaraiabhishek.com.np/apps/fullopen',
+      lastModified: new Date(),
+    },
+    {
+      url: 'https://bhattaraiabhishek.com.np/apps/bicha-ma-bhetam',
+      lastModified: new Date(),
+    },
   ];
 };
 

@@ -1,0 +1,77 @@
+/* FullOpen: accent tokens plus the hero mock. Everything else is apps.css. */
+.fo-site {
+  --accent: #6d3fd1;
+  --accent-text: #5a31b3;
+  --accent-on: #ffffff;
+  --accent-soft: #efe9fb;
+  --accent-detail: #8f63ee;
+}
+
+/* Hero mock: a Dock with FullOpen's right-click menu above one app. */
+.fo-screen {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 16 / 13;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background: linear-gradient(160deg, #efe9fb, #d9ccf6);
+}
+
+.fo-menu {
+  position: absolute;
+  bottom: 84px;
+  left: 50%;
+  width: 230px;
+  padding: 5px;
+  transform: translateX(-50%);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 18px 36px -18px rgba(90, 49, 179, 0.5);
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.fo-menu span {
+  display: block;
+  padding: 6px 12px;
+  border-radius: 7px;
+}
+
+.fo-menu .fo-on {
+  background: var(--accent);
+  color: var(--accent-on);
+  font-weight: 600;
+}
+
+.fo-menu hr {
+  margin: 4px 12px;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+.fo-dock {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  display: flex;
+  gap: 10px;
+  padding: 9px;
+  transform: translateX(-50%);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.fo-dock i {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.fo-dock .fo-on {
+  background: var(--accent);
+}
