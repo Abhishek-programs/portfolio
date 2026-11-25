@@ -734,7 +734,7 @@ export default function CinematicPortfolio() {
             <div className="background-grid">
               <article className="credential reveal-item">
                 <span>2019 — 2022</span>
-                <h3>BSc (Hons), Cyber Security & Ethical Hacking</h3>
+                <h3>BSc (Hons), Ethical Hacking & Cyber Security</h3>
                 <p>Coventry University · GPA 3.6+</p>
               </article>
               <article className="credential reveal-item">
