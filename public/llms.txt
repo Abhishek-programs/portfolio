@@ -5,6 +5,7 @@
 ## Apps
 
 - [Pin To Top](https://bhattaraiabhishek.com.np/apps/pintotop): Free, open-source Mac app that keeps a video call (FaceTime, Zoom, Google Meet, Teams) or any other window floating on top, even over full-screen apps and across every Space. macOS 14+, Apple Silicon. MIT license. Source: https://github.com/Abhishek-programs/PinToTop
+- [Bicha ma Bhetam](https://bhattaraiabhishek.com.np/apps/bicha-ma-bhetam): Free web app for friend groups in Kathmandu. Finds the middle of the group, suggests cafes and landmarks around it, shows everyone's rough ride, and keeps score of who has ridden the most. No login.
 - [All apps](https://bhattaraiabhishek.com.np/apps)
 
 ## Pin To Top: short answers

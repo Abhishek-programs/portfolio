@@ -7,13 +7,21 @@ import { AppHeader } from './AppHeader';
 export const metadata: Metadata = {
   title: 'Apps',
   description:
-    'Apps by Abhishek Bhattarai. UnSpoil is a local-first personal finance app for Android. Pin To Top is picture-in-picture for video calls on Mac, even over full-screen apps.',
+    'Apps by Abhishek Bhattarai. UnSpoil is a local-first personal finance app for Android. Pin To Top is picture-in-picture for video calls on Mac, even over full-screen apps. Bicha ma Bhetam finds the middle for friends in Kathmandu and keeps score of who rides the most.',
   alternates: {
     canonical: 'https://bhattaraiabhishek.com.np/apps',
   },
 };
 
-const apps = [
+const apps: {
+  name: string;
+  platform: string;
+  summary: string;
+  href: string;
+  external?: boolean;
+  icon: string;
+  accent: Record<string, string>;
+}[] = [
   {
     name: 'UnSpoil',
     platform: 'Android',
@@ -40,6 +48,20 @@ const apps = [
       '--accent-soft': '#e6ecfb',
     },
   },
+  {
+    name: 'Bicha ma Bhetam',
+    platform: 'Web · Kathmandu',
+    summary:
+      'Drop your friends on the map, meet in the middle, and keep score of who has ridden the most. Rough ride times, plenty of banter, no login.',
+    href: '/apps/bicha-ma-bhetam',
+    external: true,
+    icon: '/apps/bicha-ma-bhetam/icon-512.png',
+    accent: {
+      '--accent': '#c8102e',
+      '--accent-text': '#b30e29',
+      '--accent-soft': '#fdf2f3',
+    },
+  },
 ];
 
 export default function AppsPage() {
@@ -58,45 +80,49 @@ export default function AppsPage() {
           Small, focused apps I build and publish.
         </p>
         <ul className="mt-12 border-t border-[var(--line-strong)]">
-          {apps.map(app => (
-            <li
-              key={app.href}
-              className="border-b border-[var(--line)]"
-              style={app.accent as React.CSSProperties}
-            >
-              <Link
-                href={app.href}
-                className="group flex items-start gap-5 py-7 no-underline"
+          {apps.map(app => {
+            // redirects to another site, so it needs a plain link
+            const Row = app.external ? 'a' : Link;
+            return (
+              <li
+                key={app.href}
+                className="border-b border-[var(--line)]"
+                style={app.accent as React.CSSProperties}
               >
-                <Image
-                  src={app.icon}
-                  alt=""
-                  width={64}
-                  height={64}
-                  className="flex-none rounded-2xl"
-                />
-                <span className="min-w-0 flex-1">
-                  <span className="flex items-baseline justify-between gap-4">
-                    <span className="font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight transition-colors group-hover:text-[var(--accent-text)] md:text-3xl">
-                      {app.name}
+                <Row
+                  href={app.href}
+                  className="group flex items-start gap-5 py-7 no-underline"
+                >
+                  <Image
+                    src={app.icon}
+                    alt=""
+                    width={64}
+                    height={64}
+                    className="flex-none rounded-2xl"
+                  />
+                  <span className="min-w-0 flex-1">
+                    <span className="flex items-baseline justify-between gap-4">
+                      <span className="font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight transition-colors group-hover:text-[var(--accent-text)] md:text-3xl">
+                        {app.name}
+                      </span>
+                      <span
+                        aria-hidden
+                        className="text-xl text-[var(--accent-text)] transition-transform group-hover:translate-x-1"
+                      >
+                        <FiArrowRight />
+                      </span>
                     </span>
-                    <span
-                      aria-hidden
-                      className="text-xl text-[var(--accent-text)] transition-transform group-hover:translate-x-1"
-                    >
-                      <FiArrowRight />
+                    <span className="mt-1 block text-[13px] font-medium text-[var(--accent-text)]">
+                      {app.platform}
+                    </span>
+                    <span className="mt-2 block max-w-xl text-[15.5px] leading-relaxed text-[var(--muted)]">
+                      {app.summary}
                     </span>
                   </span>
-                  <span className="mt-1 block text-[13px] font-medium text-[var(--accent-text)]">
-                    {app.platform}
-                  </span>
-                  <span className="mt-2 block max-w-xl text-[15.5px] leading-relaxed text-[var(--muted)]">
-                    {app.summary}
-                  </span>
-                </span>
-              </Link>
-            </li>
-          ))}
+                </Row>
+              </li>
+            );
+          })}
         </ul>
       </main>
     </>
