@@ -1,12 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Lives on its own site. Not permanent, so this address can become a page here later.
+  // These live elsewhere. Not permanent, so the addresses can become pages here later.
   async redirects() {
     return [
       {
         source: '/apps/bicha-ma-bhetam',
         destination: 'https://bicha-ma-bhetam.vercel.app/',
+        permanent: false,
+      },
+      {
+        source: '/apps/fullopen',
+        destination: 'https://github.com/Abhishek-programs/FullOpen',
         permanent: false,
       },
     ];

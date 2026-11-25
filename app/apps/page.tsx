@@ -7,7 +7,7 @@ import { AppHeader } from './AppHeader';
 export const metadata: Metadata = {
   title: 'Apps',
   description:
-    'Apps by Abhishek Bhattarai. UnSpoil is a local-first personal finance app for Android. Pin To Top is picture-in-picture for video calls on Mac, even over full-screen apps. Bicha ma Bhetam finds the middle for friends in Kathmandu and keeps score of who rides the most.',
+    'Apps by Abhishek Bhattarai. UnSpoil is a local-first personal finance app for Android. Pin To Top is picture-in-picture for video calls on Mac, even over full-screen apps. FullOpen opens any Mac app straight into full screen. Bicha ma Bhetam finds the middle for friends in Kathmandu and keeps score of who rides the most.',
   alternates: {
     canonical: 'https://bhattaraiabhishek.com.np/apps',
   },
@@ -46,6 +46,20 @@ const apps: {
       '--accent': '#2f5bd3',
       '--accent-text': '#2449b0',
       '--accent-soft': '#e6ecfb',
+    },
+  },
+  {
+    name: 'FullOpen',
+    platform: 'macOS · Open source',
+    summary:
+      'Open any Mac app straight into full screen. Right-click it in the Dock, Finder or search, or hold Shift while it opens. Free and MIT licensed.',
+    href: '/apps/fullopen',
+    external: true,
+    icon: '/apps/fullopen/icon-512.png',
+    accent: {
+      '--accent': '#6d3fd1',
+      '--accent-text': '#5a31b3',
+      '--accent-soft': '#efe9fb',
     },
   },
   {

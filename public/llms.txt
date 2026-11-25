@@ -5,6 +5,7 @@
 ## Apps
 
 - [Pin To Top](https://bhattaraiabhishek.com.np/apps/pintotop): Free, open-source Mac app that keeps a video call (FaceTime, Zoom, Google Meet, Teams) or any other window floating on top, even over full-screen apps and across every Space. macOS 14+, Apple Silicon. MIT license. Source: https://github.com/Abhishek-programs/PinToTop
+- [FullOpen](https://bhattaraiabhishek.com.np/apps/fullopen): Free, open-source Mac app that opens any app straight into full screen. Right-click the app in the Dock, Finder or search, or hold Shift while it opens. macOS 14+, Apple Silicon, builds from source with one line. MIT license. Source: https://github.com/Abhishek-programs/FullOpen
 - [Bicha ma Bhetam](https://bhattaraiabhishek.com.np/apps/bicha-ma-bhetam): Free web app for friend groups in Kathmandu. Finds the middle of the group, suggests cafes and landmarks around it, shows everyone's rough ride, and keeps score of who has ridden the most. No login.
 - [All apps](https://bhattaraiabhishek.com.np/apps)
 
